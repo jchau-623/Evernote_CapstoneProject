@@ -8,12 +8,12 @@ class Note(db.Model):
     id  = db.Column(db.Integer, primary_key=True)
     heading = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(2200), nullable=False)
-    notebook_id = db.Column(db.Integer, db.ForeignKey('notebooks.id', nullable=False))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id', nullable=False))
+    notebook_id = db.Column(db.Integer, db.ForeignKey('notebooks.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship('User', back_populates='notes')
-    notebook = db.relationship('NoteBook', back_populates='notes')
+    notebook = db.relationship('Notebook', back_populates='notes')
 
     def to_dict(self):
 
