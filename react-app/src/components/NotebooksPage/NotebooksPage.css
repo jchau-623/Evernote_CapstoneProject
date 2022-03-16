@@ -1,0 +1,39 @@
+#notebooks-bigger-container {
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.notebooks-page-container {
+    display:flex;
+    flex-direction: row;
+    width:800px;
+    height:602px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:30px;
+}
+
+#notebooks-title {
+    color: #333333;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.notebooks-header {
+    display: flex;
+    flex-direction: column;
+}
+
+#number-notebooks {
+    display:flex;
+    width:800px;
+    justify-content: space-between;
+    border-bottom:2px solid #5b6b70;
+    padding-bottom:7px;
+}
+
+#new-notebook-button {
+    display:flex;
+    align-items: flex-end;
+}

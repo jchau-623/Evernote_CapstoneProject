@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import NotesPage from './components/NotesPage';
 import Footer from './components/Footer';
 import NotebooksPage from './components/NotebooksPage';
+import HomePage from './components/HomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,11 +43,11 @@ function App() {
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute> */}
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage />
         </ProtectedRoute>
         <ProtectedRoute path='/notes' exact={true}>
             <NotesPage />
@@ -55,7 +56,7 @@ function App() {
             <NotebooksPage />
         </ProtectedRoute>
       </Switch>
-      {!user && <Footer />}
+      <Footer />
     </BrowserRouter>
   );
 }

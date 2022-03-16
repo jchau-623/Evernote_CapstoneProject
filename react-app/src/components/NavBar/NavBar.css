@@ -15,7 +15,6 @@
 
 .nav-bar-right-section {
     display: flex;
-    justify-content: end;
     align-items: flex-end;
     margin-right: 50px;
 }

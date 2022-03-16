@@ -11,20 +11,26 @@
     height:100%;
     flex-direction: column;
     border:1px solid lightgray;
+    border-top: none;
     padding:20px
+}
+
+.note-container:hover {
+    border:1px solid rgb(42, 99, 221);
 }
 
 #notes-heading {
     display:flex;
     font-size:20px;
-    height:110px;
+    height:80px;
     border:1px solid lightgray;
     padding:20px;
     flex-direction: column;
+    border-right: none;
 }
 
 .note-container-time {
-    margin-top:50px;
+    margin-top:45px;
     color:#737373;
     font-size: 14px;
 }
@@ -35,7 +41,7 @@
 }
 
 .notes-number {
-    margin-top:60px;
+    margin-top:35px;
     color:#737373;
 }
 
@@ -46,4 +52,29 @@
 
 .test {
     border:solid 1px red
+}
+
+.large-square {
+    max-height: 650px;
+    overflow-y:scroll;
+    scrollbar-width: none;
+}
+
+.large-square::-webkit-scrollbar {
+    display: none;
+}
+
+.full-notes-page {
+    display:flex;
+    height:632px;
+}
+
+#edit-note-heading {
+    display:flex;
+    flex-direction: column;
+    border:lightgray 1px solid;
+    padding:20px;
+    width:900px;
+    height:80px;
+    justify-content: space-between;
 }

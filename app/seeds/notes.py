@@ -26,6 +26,20 @@ def seed_notes():
     created_at=now
     ),
     Note(
+    heading='Groceries',
+    description='Milk, eggs, cheese',
+    notebook_id='1',
+    user_id='1',
+    created_at=now
+    ),
+    Note(
+    heading='Random thought',
+    description="How can mirrors be real if our eyes aren't real",
+    notebook_id='1',
+    user_id='1',
+    created_at=now
+    ),
+    Note(
     heading='Demo heading',
     description='Demo description',
     notebook_id='1',
