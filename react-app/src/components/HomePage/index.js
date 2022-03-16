@@ -20,7 +20,7 @@ export default function HomePage() {
             <div className='main-all-notes-container'>
                 <NavLink id='recent-notes-btn' to='/notes' exact={true} activeClassName='active'>
                     <div className="notes-title" >
-                        Recent Notes <i id='greater-than' className="fa-solid fa-greater-than"></i>
+                    Your notes <i id='greater-than' className="fa-solid fa-greater-than"></i>
                     </div>
                 </NavLink>
                 <div className="containers-spacing">
