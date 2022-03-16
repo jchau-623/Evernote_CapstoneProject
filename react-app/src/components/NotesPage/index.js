@@ -4,6 +4,7 @@ import { getNotes } from '../../store/notes'
 import './NotesPage.css'
 import DeleteNoteButton from '../DeleteNoteButton'
 import { timePassed } from './utils'
+import AddNoteButton from '../AddNoteButton'
 
 export default function NotesPage() {
 
@@ -42,8 +43,9 @@ export default function NotesPage() {
                 </div>
             </div>
             <div id='edit-note-heading'>
-                <div>
+                <div id='add-note-btn'>
                     (Notebook Name)
+                    <AddNoteButton />
                 </div>
                 <div>
                     (word stuff)

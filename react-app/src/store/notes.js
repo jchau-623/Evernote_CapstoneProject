@@ -34,10 +34,21 @@ const addNote = (note) => {
 
 
 // THUNK CREATORS
-export const addANote = (payload) => {
-    const {heading, description, created_at } = payload;
-
-    
+export const addANote = (payload) => async dispatch => {
+    const res = await fetch ('/api/notes/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            user_id: payload.user_id,
+            heading: payload.heading,
+            description: payload.description,
+        })
+    })
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(addNote(data.note))
+        return data
+    }
 }
 
 
@@ -89,6 +100,11 @@ export default function reducer(state = initialState, action) {
             newState.list = newList
             delete newState[action.noteId]
             return newState;
+        case ADD_NOTES:
+            return {
+                ...state,
+                list: [...state.list, action.note]
+            }
         default:
             return state;
     }
