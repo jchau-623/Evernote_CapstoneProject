@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './LoginForm.css'
+import everwrite from '../../assets/pencil.png'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -43,51 +45,71 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div id='signup-form-page'>
+      <div className='form-container'>
+        <img className='title' src={everwrite} alt='Everwrite Title'></img>
+        <div className='signup-form-heading'>Everwrite</div>
+        <div className='signup-form-motto'>Write everything important.</div>
+        <form onSubmit={onSignUp}>
+          <div className='error-handling'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+            <div className='form-field-container'>
+              <input
+                className='form-field'
+                type='text'
+                name='username'
+                onChange={updateUsername}
+                value={username}
+                placeholder='Username'
+              ></input>
+            </div>
+          </div>
+          <div>
+            <div className='form-field-container'>
+              <input
+                className='form-field'
+                type='text'
+                name='email'
+                onChange={updateEmail}
+                value={email}
+                placeholder='Email'
+              ></input>
+            </div>
+          </div>
+          <div>
+            <div className='form-field-container'>
+              <input
+                className='form-field'
+                type='password'
+                name='password'
+                onChange={updatePassword}
+                value={password}
+                placeholder='Password'
+              ></input>
+            </div>
+          </div>
+          <div>
+            <div className='form-field-container'>
+              <input
+                className='form-field'
+                type='password'
+                name='repeat_password'
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                placeholder='Confirm Password'
+              ></input>
+            </div>
+          </div>
+          <button id='signup-btn' className='buttons' type='submit'>Sign Up</button>
+        </form>
+        <div id='have-account'>Already have an account?</div>
+        <NavLink to='/login' id='login-link'>Sign in</NavLink>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    </div>
   );
 };
 

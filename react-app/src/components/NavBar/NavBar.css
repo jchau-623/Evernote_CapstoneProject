@@ -1,0 +1,30 @@
+#nav-bar {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+}
+.title-logo {
+    color:#00a82d;
+    font-size: 20px;
+    margin-left:10px;
+}
+
+
+.nav-bar-right-section {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    margin-right: 50px;
+}
+
+#nav-btns {
+    color:#a6a6a6;
+    margin-right: 25px;
+}
+
+#nav-btns:hover {
+    color:white;
+}

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { login } from '../../store/session';
+import './LoginForm.css'
+import everwrite from '../../assets/pencil.png'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -18,6 +20,13 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    let email = 'demo@aa.io'
+    let password = 'password'
+    dispatch(login(email, password))
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -31,34 +40,49 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div id='signup-form-page'>
+      <div className='form-container'>
+        <img className='title' src={everwrite} alt='Everwrite Title'></img>
+        <div className='signup-form-heading'>Everwrite</div>
+        <div className='signup-form-motto'>Write everything important.</div>
+        <form onSubmit={onLogin}>
+          <div className='error-handling'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div>
+          <div className='form-field-container'>
+            <label htmlFor='email'>Email</label>
+            <input
+            className='form-field'
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+            />
+          </div>
+          </div>
+          <div>
+          <div className='form-field-container'>
+            <label htmlFor='password'>Password</label>
+            <input
+            className='form-field'
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+            />
+            </div>
+            <button id='signup-btn' className='buttons' type='submit'>Continue</button>
+          </div>
+        </form>
+        <div id='have-account'>Don't have an account?</div>
+        <NavLink to='/sign-up' id='login-link'>Create account</NavLink>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 
