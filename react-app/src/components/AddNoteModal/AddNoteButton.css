@@ -1,0 +1,36 @@
+#add-note-button {
+    display: flex;
+    justify-content: center;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    height:450px;
+    width:500px;
+}
+
+.title-input {
+    height:30px;
+    width:900px;
+    border: none;
+    outline: none;
+    font-size: 26px;
+    /* padding-bottom: 5px; */
+}
+
+.textarea-input {
+    height:400px;
+    outline: none;
+    border: none;
+    width: 900px;
+    resize: none;
+    color:#737373;
+    padding-left:4px;
+}
+
+#add-note-submit {
+    display:flex;
+    justify-content: center;
+    width:80px;
+}

@@ -6,6 +6,8 @@ from app.forms.note_form import NoteForm
 
 note_routes = Blueprint('note', __name__)
 
+
+
 @note_routes.route('/')
 def get_notes():
     user_id = current_user.get_id()

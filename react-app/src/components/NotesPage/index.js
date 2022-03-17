@@ -4,7 +4,7 @@ import { getNotes } from '../../store/notes'
 import './NotesPage.css'
 import DeleteNoteButton from '../DeleteNoteButton'
 import { timePassed } from './utils'
-import AddNoteButton from '../AddNoteButton'
+import AddNoteButton from '../AddNoteModal'
 
 export default function NotesPage() {
 

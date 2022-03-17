@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { React, useState } from "react";
 import { addANote } from '../../store/notes';
+import './AddNoteButton.css'
 
 export default function AddNoteForm() {
     const dispatch = useDispatch();
@@ -23,25 +24,23 @@ export default function AddNoteForm() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className='add-form' onSubmit={handleSubmit}>
                 <label>
                     <input
+                        className='title-input'
                         type='text'
                         placeholder='Title'
                         value={heading}
                         onChange={(e) => setHeading(e.target.value)}
-                        required
                     />
                 </label>
                 <textarea
-                    rows='5'
-                    cols='90'
+                    className='textarea-input'
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder='Start writing'
-                    required
                 />
-                <button type='submit'>Submit</button>
+                <button className='buttons' id='add-note-submit' type='submit'>Submit</button>
             </form>
         </div>
     )

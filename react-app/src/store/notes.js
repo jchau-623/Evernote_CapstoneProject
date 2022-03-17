@@ -78,6 +78,23 @@ export const deleteANote = (payload) => async dispatch => {
     }
 }
 
+export const updateNote = (payload) => async dispatch => {
+    const res = await fetch('/api/notes/', {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            user_id:payload.user_id,
+            heading: payload.heading,
+            description: payload.description
+        })
+    })
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(editNote(data.note))
+        return data
+    }
+}
+
 const initialState = {
     list: []
 }
