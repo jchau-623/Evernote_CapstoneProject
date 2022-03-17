@@ -32,6 +32,7 @@ export default function AddNoteForm() {
                         placeholder='Title'
                         value={heading}
                         onChange={(e) => setHeading(e.target.value)}
+                        required
                     />
                 </label>
                 <textarea
@@ -39,6 +40,7 @@ export default function AddNoteForm() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder='Start writing'
+                    required
                 />
                 <button className='buttons' id='add-note-submit' type='submit'>Submit</button>
             </form>

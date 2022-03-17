@@ -1,7 +1,7 @@
-const LOAD_NOTES = 'dashboard/LOAD_NOTES'
-const EDIT_NOTES = 'dashboard/EDIT_NOTES'
-const DELETE_NOTES = 'dashboard/DELETE_NOTES'
-const ADD_NOTES = '/dashboard/ADD_NOTES'
+const LOAD_NOTES = 'notes/LOAD_NOTES'
+const EDIT_NOTES = 'notes/EDIT_NOTES'
+const DELETE_NOTES = 'notes/DELETE_NOTES'
+const ADD_NOTES = 'notes/ADD_NOTES'
 
 // ACTIONS
 const loadNotes = (notes) => {
@@ -13,45 +13,27 @@ const loadNotes = (notes) => {
 
 const editNote = (note) => {
     return {
-        type:EDIT_NOTES,
+        type: EDIT_NOTES,
         note
     }
 }
 
 const deleteNote = (note) => {
     return {
-        type:DELETE_NOTES,
+        type: DELETE_NOTES,
         note
     }
 }
 
 const addNote = (note) => {
     return {
-        type:ADD_NOTES,
+        type: ADD_NOTES,
         note
     }
 }
 
 
 // THUNK CREATORS
-export const addANote = (payload) => async dispatch => {
-    const res = await fetch ('/api/notes/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            user_id: payload.user_id,
-            heading: payload.heading,
-            description: payload.description,
-        })
-    })
-    if (res.ok) {
-        const data = await res.json()
-        dispatch(addNote(data.note))
-        return data
-    }
-}
-
-
 export const getNotes = () => async dispatch => {
     const res = await fetch('/api/notes/');
 
@@ -62,36 +44,54 @@ export const getNotes = () => async dispatch => {
     }
 }
 
+export const updateNote = (payload) => async dispatch => {
+    const res = await fetch('/api/notes/', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            user_id: payload.user_id,
+            note_id: payload.note_id,
+            heading: payload.heading,
+            description: payload.description
+        })
+    })
+    if (res.ok) {
+        const note = await res.json()
+        dispatch(editNote(note.note))
+        return note;
+    }
+}
+
 export const deleteANote = (payload) => async dispatch => {
     const res = await fetch('/api/notes/', {
         method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             note_id: payload.note_id
         })
     })
 
     if (res.ok) {
-        const data = await res.json()
-        dispatch(deleteNote(data.deleted_note))
-        return data;
+        const note = await res.json()
+        dispatch(deleteNote(note.deleted_note))
+        return note;
     }
 }
-
-export const updateNote = (payload) => async dispatch => {
+export const addANote = (payload) => async dispatch => {
     const res = await fetch('/api/notes/', {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            user_id:payload.user_id,
+            user_id: payload.user_id,
+            note_id: payload.note_id,
             heading: payload.heading,
-            description: payload.description
+            description: payload.description,
         })
     })
     if (res.ok) {
-        const data = await res.json()
-        dispatch(editNote(data.note))
-        return data
+        const note = await res.json()
+        dispatch(addNote(note.note))
+        return note
     }
 }
 
@@ -101,7 +101,7 @@ const initialState = {
 
 
 export default function reducer(state = initialState, action) {
-    switch(action.type) {
+    switch (action.type) {
         case LOAD_NOTES:
             const allList = {};
             action.notes.forEach(note => {
@@ -111,17 +111,31 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 list: [...action.notes]
             }
+
+        case EDIT_NOTES: {
+            const newState = { ...state }
+            const index = newState.list.findIndex(note => note.id === action.note.id)
+            const newListArr = [...newState.list]
+            newListArr[index] = action.note;
+            newState.list = newListArr
+
+            return newState
+        }
+
         case DELETE_NOTES:
-            const newState = {...state}
+            const newState = { ...state }
             const newList = newState.list.filter(note => note.id !== action.noteId)
             newState.list = newList
             delete newState[action.noteId]
+            
             return newState;
+
         case ADD_NOTES:
             return {
                 ...state,
                 list: [...state.list, action.note]
             }
+
         default:
             return state;
     }

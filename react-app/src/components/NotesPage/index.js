@@ -5,6 +5,7 @@ import './NotesPage.css'
 import DeleteNoteButton from '../DeleteNoteButton'
 import { timePassed } from './utils'
 import AddNoteButton from '../AddNoteModal'
+import EditNoteButton from '../EditNoteModal'
 
 export default function NotesPage() {
 
@@ -27,6 +28,7 @@ export default function NotesPage() {
                                 {notes.length} notes
                             </div>
                         </div>
+                        <div id='flip-around'>
                         {notes.map((note) =>
                             <div className='note-container'>
                                 <div className='note-container-heading'>{note.heading}
@@ -37,8 +39,10 @@ export default function NotesPage() {
                                     {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                 </div>
                                 <DeleteNoteButton noteId={note.id} />
+                                <EditNoteButton note={note} />
                             </div>
                         )}
+                        </div>
                     </div>
                 </div>
             </div>

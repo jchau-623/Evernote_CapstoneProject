@@ -1,8 +1,17 @@
-
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { getNotebooks } from '../../store/notebooks';
 import './NotebooksPage.css'
 
 export default function NotebooksPage() {
 
+    const dispatch = useDispatch();
+    const notebooks = useSelector(state => state.notebooks.list)
+
+    useEffect(() => {
+        dispatch(getNotebooks())
+
+    }, [dispatch])
 
     return (
         <div id='notebooks-bigger-container'>
@@ -17,6 +26,11 @@ export default function NotebooksPage() {
                         New Notebook button
                         </div>
                     </div>
+                </div>
+                <div>
+                {notebooks.map((notebook) =>
+                <div>{notebook.name}</div>
+                )}
                 </div>
             </div>
         </div>

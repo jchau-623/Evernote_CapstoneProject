@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+import EditNoteForm from './EditNoteForm';
+import { Modal } from '../../context/Modal';
 
-export default function EditNoteButton(note) {
+export default function EditNoteButton({note}) {
     const dispatch = useDispatch();
     const [showEditNoteModal, setShowEditNoteModal] = useState(false)
 
@@ -21,10 +23,10 @@ export default function EditNoteButton(note) {
 
     return (
         <div>
-        <button className='buttons' id='edit-note-button' onClick={openEditNoteModal}>Edit Note</button>
+        <button id='edit-note-button' onClick={openEditNoteModal}>Edit Note</button>
         {showEditNoteModal && (
-            <Modal onClose={() => setShowEditNoteModal(false)}>
-                <AddNoteForm />
+            <Modal onClose={() => setShowEditNoteModal(false)} >
+                <EditNoteForm note={note} />
             </Modal>
         )}
     </div>

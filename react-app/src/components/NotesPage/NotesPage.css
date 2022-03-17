@@ -83,3 +83,8 @@
     display:flex;
     justify-content: space-between;
 }
+
+#flip-around {
+    display: flex;
+    flex-direction: column-reverse;
+}

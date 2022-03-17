@@ -6,6 +6,20 @@ from app.forms.note_form import NoteForm
 
 note_routes = Blueprint('note', __name__)
 
+@note_routes.route('/', methods= ['PATCH'])
+def edit_note():
+    data = request.json
+
+    note_id = data['note_id']
+    heading = data['heading']
+    description = data['description']
+
+    new_note = Note.query.get(note_id)
+    new_note.heading = heading
+    new_note.description = description
+
+    db.session.commit()
+    return {'note': new_note.to_dict()}
 
 
 @note_routes.route('/')

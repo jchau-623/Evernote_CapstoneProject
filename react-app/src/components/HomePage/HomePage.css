@@ -41,7 +41,7 @@
 
 .only-containers {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: flex-end;
     margin-bottom: 50px;
     margin-left: 10px;
@@ -52,6 +52,11 @@
     font-size: 20px;
     margin-bottom: 20px;
     margin-left: 15px;
+}
+
+.notes-title:hover {
+    background-color: #f2f2f2;
+    width:140px;
 }
 
 #greater-than {
