@@ -38,7 +38,7 @@ def delete_note():
     db.session.delete(note)
     db.session.commit()
 
-    return {'deleted_note': note_id}
+    return {'deleted_noteId': note_id}
 
 @note_routes.route('/', methods= ['POST'])
 def add_note():
