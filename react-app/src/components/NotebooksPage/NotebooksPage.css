@@ -18,6 +18,8 @@
     color: #333333;
     font-size: 20px;
     padding-bottom: 20px;
+    display:flex;
+    justify-content: space-between;
 }
 
 .notebooks-header {
@@ -36,4 +38,14 @@
 #new-notebook-button {
     display:flex;
     align-items: flex-end;
+}
+
+.notebooks {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-notebook {
+    display:flex;
+    justify-content: space-between;
 }

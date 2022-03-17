@@ -18,10 +18,10 @@ const editNote = (note) => {
     }
 }
 
-const deleteNote = (note) => {
+const deleteNote = (noteId) => {
     return {
         type: DELETE_NOTES,
-        note
+        noteId
     }
 }
 
@@ -127,7 +127,7 @@ export default function reducer(state = initialState, action) {
             const newList = newState.list.filter(note => note.id !== action.noteId)
             newState.list = newList
             delete newState[action.noteId]
-            
+
             return newState;
 
         case ADD_NOTES:

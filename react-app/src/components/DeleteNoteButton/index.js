@@ -10,7 +10,6 @@ export default function DeleteNoteButton(noteId) {
             note_id: noteId
         }
         const deletedNote = await dispatch(deleteANote(payload))
-        window.location.reload(false);
     }
 
     return (

@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, Note, Notebook
+from app.models import db, Note
 from app.forms.note_form import NoteForm
 
 
@@ -42,9 +42,7 @@ def delete_note():
 
 @note_routes.route('/', methods= ['POST'])
 def add_note():
-    print('in api route', '----------------------------')
     data = request.json
-    print(data,'-----------')
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -54,7 +52,7 @@ def add_note():
             heading = data['heading'],
             description = data['description'],
         )
-    print(note, '-------------')
+    # print(note, '-------------')
     db.session.add(note)
     db.session.commit()
 

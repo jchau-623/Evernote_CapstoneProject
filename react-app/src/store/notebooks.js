@@ -11,6 +11,13 @@ const loadNotebooks = (notebooks) => {
     }
 }
 
+const addNotebook = (notebook) => {
+    return {
+        type: ADD_NOTEBOOKS,
+        notebook
+    }
+}
+
 // THUNK CREATORS
 export const getNotebooks = () => async dispatch => {
     const res = await fetch('/api/notebooks/')
@@ -22,6 +29,22 @@ export const getNotebooks = () => async dispatch => {
     }
 }
 
+export const addANotebook = (payload) => async dispatch => {
+    const res = await fetch('/api/notebooks/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            user_id: payload.user_id,
+            notebook_id: payload.notebook_id,
+            name: payload.name
+        })
+    })
+    if (res.ok) {
+        const notebook = await res.json()
+        dispatch(addNotebook(notebook.notebook))
+        return notebook
+    }
+}
 
 const initialState = {
     list: []
@@ -31,13 +54,21 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_NOTEBOOKS:
             const allList = {};
+            // console.log(action.notebooks, '----------')
             action.notebooks.forEach(notebook => {
                 allList[notebook.id] = notebook
             })
             return {
                 ...state,
-                list: [...action.notebooks]
+                list: action.notebooks
             }
+
+        case ADD_NOTEBOOKS:
+            return {
+                ...state,
+                list: [state.list, action.notebook]
+            }
+
         default:
             return state;
     }
