@@ -10,6 +10,10 @@ export default function AddNotebookButton() {
         setShowAddNotebookModal(true)
     }
 
+    const closeAddNotebookModal = (e) => {
+        setShowAddNotebookModal(false)
+    }
+
     useEffect(() => {
         if (!showAddNotebookModal) return
 
@@ -23,7 +27,7 @@ export default function AddNotebookButton() {
             <button id='new-notebook' onClick={openAddNotebookModal}>New Notebook</button>
             {showAddNotebookModal && (
                     <Modal onClose={() => setShowAddNotebookModal(false)}>
-                    <AddNotebookForm />
+                    <AddNotebookForm closeAddForm={closeAddNotebookModal}/>
                 </Modal>
             )}
         </div>

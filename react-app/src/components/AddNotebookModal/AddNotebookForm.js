@@ -3,7 +3,7 @@ import { React, useState } from "react";
 import { addANotebook } from '../../store/notebooks';
 
 
-export default function AddNotebookForm() {
+export default function AddNotebookForm({closeAddForm}) {
     const dispatch = useDispatch()
     const [name, setName] = useState('')
 
@@ -33,7 +33,7 @@ export default function AddNotebookForm() {
                         required
                     />
                 </label>
-                <button onClick={handleSubmit}>Create</button>
+                <button onClick={[handleSubmit, closeAddForm]}>Create</button>
             </form>
         </div>
     )

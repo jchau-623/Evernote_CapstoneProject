@@ -134,10 +134,11 @@ export default function reducer(state = initialState, action) {
             newState.list = newList
             delete newState[action.noteId]
 
-
             return newState;
+
             // const newState = { ...state };
-			// delete newState.notes[action.noteId];
+
+			// delete newState[action.noteId];
 			// return newState;
 
         case ADD_NOTES:

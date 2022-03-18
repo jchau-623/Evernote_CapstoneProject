@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getNotebooks } from '../../store/notebooks';
 import AddNotebookButton from '../AddNotebookModal';
+import DeleteNotebookButton from '../DeleteNotebookButton';
+import EditNotebookButton from '../EditNotebookModal';
 import './NotebooksPage.css'
 
 export default function NotebooksPage() {
@@ -30,12 +32,18 @@ export default function NotebooksPage() {
                         <div>
                             Created by
                         </div>
+                        <div>
+                            Actions
+                        </div>
+
                     </div>
                     <div className='notebooks'>
                         {notebooks?.map((notebook, index) =>
                             <div key={index} className='one-notebook'>
-                                <div>{notebook.name}</div>
+                                <div id='notebook-name'>{notebook.name}</div>
                                 <div>{sessionUser.username}</div>
+                                <EditNotebookButton notebook={notebook} />
+                                <DeleteNotebookButton notebookId={notebook.id} />
                             </div>
                         )}
                     </div>

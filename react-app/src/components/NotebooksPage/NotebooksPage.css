@@ -42,10 +42,19 @@
 
 .notebooks {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}
+
+.notebooks::-webkit-scrollbar  {
+    display:none;
 }
 
 .one-notebook {
     display:flex;
     justify-content: space-between;
+}
+
+#notebook-name {
+    width:150px;
 }
