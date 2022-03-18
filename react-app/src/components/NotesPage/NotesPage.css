@@ -17,6 +17,7 @@
 
 .note-container:hover {
     border:1px solid rgb(42, 99, 221);
+    cursor:pointer;
 }
 
 #notes-heading {
@@ -77,14 +78,21 @@
     width:900px;
     height:80px;
     justify-content: space-between;
+    /* background-image: url('../../assets/notebook.webp'); */
 }
 
 #add-note-btn {
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 #flip-around {
     display: flex;
     flex-direction: column-reverse;
+}
+
+#big-notebook {
+    width:60px;
+    height:60px;
+    object-fit: cover;
 }

@@ -12,6 +12,7 @@ import NotesPage from './components/NotesPage';
 import Footer from './components/Footer';
 import NotebooksPage from './components/NotebooksPage';
 import HomePage from './components/HomePage';
+import SingleNotebookPage from './components/SingleNotebook';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -55,6 +56,9 @@ function App() {
         <ProtectedRoute path='/notebooks' exact={true}>
             <NotebooksPage />
         </ProtectedRoute>
+        {/* <ProtectedRoute path='/:name' exact={true} >
+          <SingleNotebookPage  />
+        </ProtectedRoute> */}
       </Switch>
       <Footer />
     </BrowserRouter>

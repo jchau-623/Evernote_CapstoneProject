@@ -20,11 +20,12 @@ export default function AddNoteForm() {
         }
 
         const newNote = await dispatch(addANote(payload))
+
     }
 
     return (
         <div>
-            <form className='add-form' onSubmit={handleSubmit}>
+            <form className='add-form'>
                 <label>
                     <input
                         className='title-input'
@@ -42,7 +43,7 @@ export default function AddNoteForm() {
                     placeholder='Start writing'
                     required
                 />
-                <button className='buttons' id='add-note-submit' type='submit'>Submit</button>
+                <button className='buttons' id='add-note-submit' onClick={handleSubmit}>Submit</button>
             </form>
         </div>
     )

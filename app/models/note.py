@@ -20,7 +20,7 @@ class Note(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
-            'notebookd_id': self.notebook_id,
+            'notebook_id': self.notebook_id,
             'heading': self.heading,
             'description': self.description,
             'created_at': self.created_at

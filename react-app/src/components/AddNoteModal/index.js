@@ -8,6 +8,8 @@ export default function AddNoteButton() {
 
     const [showAddNoteModal, setShowAddNoteModal] = useState(false)
 
+
+
     const openAddNoteModal = () => {
         if (showAddNoteModal) return;
         setShowAddNoteModal(true)
@@ -26,7 +28,7 @@ export default function AddNoteButton() {
             <button className='buttons' id='add-note-button' onClick={openAddNoteModal}>Add Note</button>
             {showAddNoteModal && (
                 <Modal onClose={() => setShowAddNoteModal(false)}>
-                    <AddNoteForm />
+                    <AddNoteForm  />
                 </Modal>
             )}
         </div>

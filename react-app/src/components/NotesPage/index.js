@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getNotes } from '../../store/notes'
 import './NotesPage.css'
@@ -6,8 +6,27 @@ import DeleteNoteButton from '../DeleteNoteButton'
 import { timePassed } from './utils'
 import AddNoteButton from '../AddNoteModal'
 import EditNoteButton from '../EditNoteModal'
+import { Modal } from '../../context/Modal'
+import EditNoteForm from '../EditNoteModal/EditNoteForm'
 
-export default function NotesPage() {
+export default function NotesPage({ note }) {
+
+
+
+    const [showEditNoteModal, setShowEditNoteModal] = useState(false)
+
+    const openEditNoteModal = () => {
+        if (showEditNoteModal) return;
+        setShowEditNoteModal(true)
+    }
+
+    useEffect(() => {
+        if (!showEditNoteModal) return
+
+        const closeEditNoteModal = (e) => {
+            setShowEditNoteModal(false)
+        }
+    }, [showEditNoteModal])
 
     const dispatch = useDispatch();
     const notes = useSelector(state => state.notes.list)
@@ -19,7 +38,7 @@ export default function NotesPage() {
 
     return (
         <div className='full-notes-page'>
-            <div className='notes-container'>
+            <div className='notes-container' >
                 <div>
                     <div className='large-square'>
                         <div id='notes-heading'>
@@ -30,7 +49,12 @@ export default function NotesPage() {
                         </div>
                         <div id='flip-around'>
                             {notes.map((note, index) =>
-                                <div key={index} className='note-container'>
+                                <div key={index} className='note-container' onClick={openEditNoteModal} >
+                                    {showEditNoteModal && (
+                                        <Modal onClose={() => setShowEditNoteModal(false)} >
+                                            <EditNoteForm note={note} />
+                                        </Modal>
+                                    )}
                                     <div className='note-container-heading'>{note.heading}
                                     </div>
                                     <div className='note-container-description'>{note.description}
@@ -39,7 +63,6 @@ export default function NotesPage() {
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                     </div>
                                     <DeleteNoteButton noteId={note.id} />
-                                    <EditNoteButton note={note} />
                                 </div>
                             )}
                         </div>
@@ -48,15 +71,12 @@ export default function NotesPage() {
             </div>
             <div id='edit-note-heading'>
                 <div id='add-note-btn'>
-                    (Notebook Name)
                     <AddNoteButton />
                 </div>
                 <div>
-                    (word stuff)
                 </div>
             </div>
             <div>
-                {/* TODO EDIT NOTE FORM */}
             </div>
         </div>
     )
