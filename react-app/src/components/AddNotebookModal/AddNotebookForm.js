@@ -18,6 +18,7 @@ export default function AddNotebookForm({closeAddForm}) {
         }
 
         const newNotebook = await dispatch(addANotebook(payload))
+        closeAddForm()
     }
 
     return (
@@ -33,7 +34,7 @@ export default function AddNotebookForm({closeAddForm}) {
                         required
                     />
                 </label>
-                <button onClick={[handleSubmit, closeAddForm]}>Create</button>
+                <button onClick={handleSubmit}>Create</button>
             </form>
         </div>
     )

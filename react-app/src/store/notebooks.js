@@ -61,7 +61,7 @@ export const addANotebook = (payload) => async dispatch => {
 }
 
 export const deleteANotebook = (payload) => async dispatch => {
-    console.log(payload, 'this is payload')
+    // console.log(payload, 'this is payload')
     const res = await fetch('/api/notebooks/', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
@@ -71,7 +71,7 @@ export const deleteANotebook = (payload) => async dispatch => {
     })
         if (res.ok) {
         const notebook = await res.json()
-        console.log(notebook,'------this is notebook--------')
+        // console.log(notebook,'------this is notebook--------')
         dispatch(deleteNotebook(notebook.deleted_notebookId))
         return notebook
     }
