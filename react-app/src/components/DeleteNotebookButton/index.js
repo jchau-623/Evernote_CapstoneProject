@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteANote } from "../../store/notes";
+import { deleteANotebook } from "../../store/notebooks";
 
-export default function DeleteNoteButton(noteId) {
+export default function DeleteNotebookButton({notebookId}) {
     const dispatch = useDispatch();
-
     const handleSubmit = async (e) => {
+        const id = notebookId
         const payload = {
-            note_id: noteId
+            notebook_id: id
         }
-        const deletedNote = await dispatch(deleteANote(payload))
+        const deletedNotebook = await dispatch(deleteANotebook(payload))
     }
 
     return (
@@ -17,5 +17,4 @@ export default function DeleteNoteButton(noteId) {
             <button onClick={handleSubmit}>Delete</button>
         </div>
     )
-
 }

@@ -18,10 +18,10 @@ const editNote = (note) => {
     }
 }
 
-const deleteNote = (note) => {
+const deleteNote = (noteId) => {
     return {
         type: DELETE_NOTES,
-        note
+        noteId
     }
 }
 
@@ -41,6 +41,10 @@ export const getNotes = () => async dispatch => {
         const notes = await res.json()
         dispatch(loadNotes(notes.notes))
         return notes
+    } else {
+		const errors = await res.json();
+		console.error(errors);
+		return errors;
     }
 }
 
@@ -73,9 +77,11 @@ export const deleteANote = (payload) => async dispatch => {
 
     if (res.ok) {
         const note = await res.json()
-        dispatch(deleteNote(note.deleted_note))
+        dispatch(deleteNote(note.deleted_noteId))
         return note;
-    }
+    } else {
+		console.log("NOTE WAS NOT DELETED");
+	}
 }
 export const addANote = (payload) => async dispatch => {
     const res = await fetch('/api/notes/', {
@@ -127,8 +133,13 @@ export default function reducer(state = initialState, action) {
             const newList = newState.list.filter(note => note.id !== action.noteId)
             newState.list = newList
             delete newState[action.noteId]
-            
+
             return newState;
+
+            // const newState = { ...state };
+
+			// delete newState[action.noteId];
+			// return newState;
 
         case ADD_NOTES:
             return {

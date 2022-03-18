@@ -29,19 +29,19 @@ export default function NotesPage() {
                             </div>
                         </div>
                         <div id='flip-around'>
-                        {notes.map((note) =>
-                            <div className='note-container'>
-                                <div className='note-container-heading'>{note.heading}
+                            {notes.map((note, index) =>
+                                <div key={index} className='note-container'>
+                                    <div className='note-container-heading'>{note.heading}
+                                    </div>
+                                    <div className='note-container-description'>{note.description}
+                                    </div>
+                                    <div className='note-container-time'>
+                                        {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
+                                    </div>
+                                    <DeleteNoteButton noteId={note.id} />
+                                    <EditNoteButton note={note} />
                                 </div>
-                                <div className='note-container-description'>{note.description}
-                                </div>
-                                <div className='note-container-time'>
-                                    {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
-                                </div>
-                                <DeleteNoteButton noteId={note.id} />
-                                <EditNoteButton note={note} />
-                            </div>
-                        )}
+                            )}
                         </div>
                     </div>
                 </div>
