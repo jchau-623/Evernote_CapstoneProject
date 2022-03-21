@@ -14,7 +14,7 @@ export default function DeleteNotebookButton({notebookId}) {
 
     return (
         <div>
-            <button onClick={handleSubmit}>Delete</button>
+            <button className="delete-button" onClick={handleSubmit}>Delete</button>
         </div>
     )
 }

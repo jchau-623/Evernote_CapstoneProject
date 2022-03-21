@@ -1,0 +1,78 @@
+#add-notebook-container {
+    width: 450px;
+    height:220px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    border:1px solid #00a82d;
+}
+
+
+#add-notebook-heading {
+    font-weight: bold;
+    font-size: 18px;
+    padding-top:20px;
+    padding-left:20px;
+}
+
+#add-name-new-notebook {
+    padding-top:10px;
+    /* padding-top:20px; */
+    padding-left:20px;
+}
+
+/* #add-new-notebook-form {
+    border-bottom:1px solid #737373;
+} */
+
+#input-label {
+    /* padding-top:20px; */
+    padding-left:20px;
+}
+
+.notebook-title-input {
+    width: 400px;
+    height:20px;
+    border-radius: 4px;
+    width:400px;
+    font-size: 16px;
+    border:1px solid #0081c2;
+    margin-bottom: 20px;
+}
+
+.edit-and-delete-button {
+    display: flex;
+    flex-direction: row;
+    border-top:1px solid #737373;
+    width:450px;
+}
+
+/* #edit-notebook-button {
+    height:30px;
+    width:150px;
+    background-color:#00a82d;
+    color:#ffffff;
+    border-radius: 7px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#edit-notebook-button:hover {
+    background-color: #007620;
+} */
+
+.edit-button {
+    height:25px;
+    width:120px;
+    background-color:#00a82d;
+    color:#ffffff;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #007620;
+}

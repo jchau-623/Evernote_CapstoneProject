@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { React, useState } from "react";
 import { addANotebook } from '../../store/notebooks';
+import './AddNotebook.css'
 
 
 export default function AddNotebookForm({closeAddForm}) {
@@ -22,9 +23,12 @@ export default function AddNotebookForm({closeAddForm}) {
     }
 
     return (
-        <div>
-            <form>
-            <label>
+        <div id='new-notebook-container'>
+            <div id='new-notebook-heading'>Create new notebook</div>
+            <div id='new-notebook-subheading'>Notebooks are useful for grouping notes around a common topic.</div>
+            <div id='name-new-notebook'>Name</div>
+            <form id='new-notebook-form'>
+            <label id='input-label'>
                     <input
                         className='name-input'
                         type='text'
@@ -34,8 +38,8 @@ export default function AddNotebookForm({closeAddForm}) {
                         required
                     />
                 </label>
-                <button onClick={handleSubmit}>Create</button>
             </form>
+                <button className='buttons' id='create-notebook-btn' onClick={handleSubmit}>Create</button>
         </div>
     )
 }

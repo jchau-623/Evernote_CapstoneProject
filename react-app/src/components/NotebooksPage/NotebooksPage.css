@@ -35,9 +35,22 @@
     padding-bottom:7px;
 }
 
-#new-notebook-button {
+#new-notebook {
     display:flex;
     align-items: flex-end;
+    color:#00a82d;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#new-notebook:hover {
+    color:#007620;
+}
+
+#add-btn {
+    margin-bottom: 2px;
 }
 
 .notebooks {
@@ -63,3 +76,29 @@
 #notebook-name {
     width:150px;
 }
+
+#created-by-username{
+    padding-left: 50px;
+}
+
+/* #edit-button {
+    height:30px;
+    width:200px;
+    background-color:#00a82d;
+    color:#ffffff;
+    border-radius: 7px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+.delete-button {
+    height:30px;
+    width:200px;
+    background-color:#00a82d;
+    color:#ffffff;
+    border-radius: 7px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+} */
+

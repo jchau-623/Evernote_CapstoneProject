@@ -66,6 +66,19 @@ export const updateNote = (payload) => async dispatch => {
     }
 }
 
+// export const updateNote = (note) => async dispatch => {
+//     const res = await fetch('/api/notes', {
+//         method: 'PUT',
+//         headers: {'Content-Type': 'application/json'},
+//         body: JSON.stringify(note),
+//     })
+//     if (res.ok) {
+//         const updatedNote = await res.json()
+//         dispatch(editNote(updatedNote))
+//         return updatedNote;
+//     }
+// }
+
 export const deleteANote = (payload) => async dispatch => {
     const res = await fetch('/api/notes/', {
         method: 'DELETE',
@@ -118,7 +131,8 @@ export default function reducer(state = initialState, action) {
                 list: [...action.notes]
             }
 
-        case EDIT_NOTES: {
+        case EDIT_NOTES:
+        {
             const newState = { ...state }
             const index = newState.list.findIndex(note => note.id === action.note.id)
             const newListArr = [...newState.list]
@@ -126,6 +140,10 @@ export default function reducer(state = initialState, action) {
             newState.list = newListArr
 
             return newState
+            // {
+            // const newState = {...state}
+            // return (newState = [...state, (action.payload.id = action.payload)]);
+            // }
         }
 
         case DELETE_NOTES:

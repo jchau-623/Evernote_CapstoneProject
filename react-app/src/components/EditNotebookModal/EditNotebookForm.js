@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateNotebook } from "../../store/notebooks";
+import './EditNotebook.css'
 
 export default function EditNotebookForm({ notebook, closeForm }) {
     const dispatch = useDispatch();
@@ -24,12 +25,15 @@ export default function EditNotebookForm({ notebook, closeForm }) {
     }
 
     return (
-        <div>
-            Rename Notebook
-            <form className="add-form">
-                <label>
+        <div id='add-notebook-container'>
+            <div id='add-notebook-heading'>
+                Rename Notebook
+            </div>
+            <div id='add-name-new-notebook'>Name</div>
+            <form id='add-new-notebook-form' className="add-form">
+                <label id='input-label'>
                     <input
-                        className='title-input'
+                        className='notebook-title-input'
                         type='text'
                         value={name}
                         placeholder='Notebook name'
@@ -37,8 +41,10 @@ export default function EditNotebookForm({ notebook, closeForm }) {
                     // required
                     />
                 </label>
-                <button id='edit-notebook-submit' onClick={handleEdit}>Continue</button>
-                <button className='cancel-button' onClick={closeForm}>Cancel</button>
+                <div className="edit-and-delete-button">
+                <button className="buttons" id='edit-notebook-submit' onClick={handleEdit}>Continue</button>
+                <button className="buttons" id='cancel-button' onClick={closeForm}>Cancel</button>
+                </div>
             </form>
         </div>
     )

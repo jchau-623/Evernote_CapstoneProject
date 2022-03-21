@@ -1,4 +1,43 @@
 .modal-container {
     display:flex;
-    
+    flex-direction: column;
+    border:1px solid #00a82d;
+    width: 400px;
+    height: 450px;
+    border-radius: 7px;
+}
+
+.notebook-heading {
+    border-bottom:2px solid #5b6b70;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    margin-top:20px;
+    padding-bottom:20px;
+    font-weight: bold;
+}
+
+.all-notes {
+    padding-top: 10px;
+    overflow-y: hidden;
+}
+
+.all-notes::-webkit-scrollbar {
+    display:none;
+}
+
+#each-note {
+    padding-left:10px;
+    padding-top:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+#each-note-description {
+    color:#737373;
+    font-size: 14px;
+}
+
+#delete-and-edit-notebook {
+    display:flex
 }

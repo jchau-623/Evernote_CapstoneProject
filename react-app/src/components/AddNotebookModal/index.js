@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Modal } from '../../context/Modal';
 import AddNotebookForm from './AddNotebookForm';
+import './AddNotebook.css'
 
 export default function AddNotebookButton() {
     const [showAddNotebookModal, setShowAddNotebookModal] = useState(false)

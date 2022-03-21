@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { Modal } from '../../context/Modal';
 import EditNotebookForm from './EditNotebookForm';
+import './EditNotebook.css'
 
 
 export default function EditNotebookButton({ notebook }) {
@@ -29,7 +30,7 @@ export default function EditNotebookButton({ notebook }) {
 
     return (
         <div>
-            <button id='edit-note-button' onClick={openEditNotebookModal}>Rename Notebook</button>
+            <button className="edit-button" id='edit-notebook-button' onClick={openEditNotebookModal}>Rename Notebook</button>
             {showEditNotebookModal && (
                 <Modal onClose={() => setShowEditNotebookModal(false)} >
                     <EditNotebookForm closeForm={closeEditNotebookModal} notebook={notebook} />

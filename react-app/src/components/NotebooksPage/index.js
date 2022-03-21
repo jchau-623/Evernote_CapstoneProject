@@ -5,9 +5,9 @@ import AddNotebookButton from '../AddNotebookModal';
 import DeleteNotebookButton from '../DeleteNotebookButton';
 import EditNotebookButton from '../EditNotebookModal';
 import './NotebooksPage.css'
-import { NavLink } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import SingleNotebookPage from '../SingleNotebook';
+import EllipsisDropdown from './EllipsisDropdown';
 
 export default function NotebooksPage() {
     const dispatch = useDispatch();
@@ -30,8 +30,8 @@ export default function NotebooksPage() {
                 <div className='notebooks-header'>
                     <div id='notebooks-title'>
                         Notebooks
-                        <div id='new-notebook-button'>
-                            <AddNotebookButton />
+                        <div id='new-notebook'>
+                        <i id='add-btn' class="fa-solid fa-plus"></i><AddNotebookButton />
                         </div>
                     </div>
                     <div id='number-notebooks'>
@@ -55,13 +55,15 @@ export default function NotebooksPage() {
                                         <SingleNotebookPage
                                         closeModal={closeOpenNotebookModal}
                                         notebookId = {notebook.id}
+                                        notebookName = {notebook.name}
                                         />
                                     </Modal>
                                 )}
-                                <div>{sessionUser.username}</div>
-                                <div>
+                                <div id='created-by-username' >{sessionUser.username}</div>
+                                <div id='delete-and-edit-notebook'>
                                     <EditNotebookButton notebook={notebook} />
                                     <DeleteNotebookButton notebookId={notebook.id} />
+                                    {/* <EllipsisDropdown /> */}
                                 </div>
                             </div>
                         )}

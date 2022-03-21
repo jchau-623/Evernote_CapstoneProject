@@ -5,7 +5,7 @@ import { getNotebooks } from '../../store/notebooks';
 import './SingleNotebook.css'
 
 
-export default function SingleNotebookPage({notebookId}) {
+export default function SingleNotebookPage({ notebookId, notebookName }) {
     const dispatch = useDispatch()
     // console.log(notebookId, 'this is notebookId')
 
@@ -15,7 +15,7 @@ export default function SingleNotebookPage({notebookId}) {
     console.log(notebooks, 'this is notebook')
 
 
-    const filteredNotes = notes.filter(note => note.notebook_id == notebookId)
+    const filteredNotes = notes.filter(note => note.notebook_id === notebookId)
     // console.log(notes, 'this is notes')
     // console.log(filteredNotes, 'this is filteredNotes')
     // console.log(notebooks, 'this is notebooks')
@@ -29,10 +29,16 @@ export default function SingleNotebookPage({notebookId}) {
     return (
         <>
             <div className='modal-container'>
-                <div className='notebook-heading'>{notebooks.name}</div>
-                <div className='each-note'>{filteredNotes.map((note, index) =>
-                    <div key={index}>{note.heading}</div>
-                    )}</div>
+                <div className='notebook-heading'>{notebookName}</div>
+                <div className='all-notes'>{filteredNotes.map((note, index) =>
+                    <div id='each-note' key={index}>{note.heading}
+                        <div id='each-note-description'>{note.description}
+                        </div>
+                    </div>
+
+                )}
+                </div>
+                    
             </div>
 
         </>

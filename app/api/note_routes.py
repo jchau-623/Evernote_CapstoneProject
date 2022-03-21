@@ -51,6 +51,7 @@ def add_note():
             user_id = data['user_id'],
             heading = data['heading'],
             description = data['description'],
+            # notebook_id = data['notebook_id']
         )
     # print(note, '-------------')
     db.session.add(note)
