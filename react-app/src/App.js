@@ -12,7 +12,7 @@ import NotesPage from './components/NotesPage';
 import Footer from './components/Footer';
 import NotebooksPage from './components/NotebooksPage';
 import HomePage from './components/HomePage';
-import SingleNotebookPage from './components/SingleNotebook';
+// import SingleNotebookPage from './components/SingleNotebook';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

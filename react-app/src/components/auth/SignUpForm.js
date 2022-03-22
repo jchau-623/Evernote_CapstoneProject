@@ -7,6 +7,7 @@ import everwrite from '../../assets/pencil.png'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
+  const [showErrors, setShowErrors] = useState(false)
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,24 +17,24 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if (errors.length < 1) {
       const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
-      }
+    } else {
+      setShowErrors(true)
     }
   };
 
   useEffect(() => {
+    setShowErrors(false)
     const errors = [];
     if (username.length < 5)
-      errors.push("Username must be at least 5 characters!");
-    if (username.length > 30) errors.push("Username is too long!");
-    if (!email.includes("@")) errors.push("This is not a valid email!");
-    if (password.length < 5) errors.push("Please provide a longer password!");
-    if (repeatPassword !== password) errors.push("Your passwords do not match!");
+      errors.push("Username must be at least 5 characters");
+    if (username.length > 30) errors.push("Username is too long");
+    if (!email.includes("@")) errors.push("This is not a valid email");
+    if (password.length < 5) errors.push("Please provide a longer password");
+    if (repeatPassword !== password) errors.push("Your passwords do not match");
     setErrors(errors);
-  }, [username, password, email, password, repeatPassword]);
+  }, [username, password, email, repeatPassword]);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -63,11 +64,10 @@ const SignUpForm = () => {
         <div className='signup-form-motto'>Write everything important.</div>
         <form onSubmit={onSignUp}>
           <div className='error-handling'>
-          {errors.map((error, ind) => (
-                <div key={ind}>
-                  {error}
-                </div>
-              ))}
+            {showErrors &&
+            errors.map((error) => {
+            return <li key={error}>{error}</li>
+            })}
           </div>
           <div>
             <div className='form-field-container'>
@@ -117,7 +117,7 @@ const SignUpForm = () => {
               ></input>
             </div>
           </div>
-          <button disabled={errors.length > 0 ? true : false} id='signup-btn' className='buttons' type='submit'>Sign Up</button>
+          <button id='signup-btn' className='buttons' type='submit'>Sign Up</button>
         </form>
         <div id='have-account'>Already have an account?</div>
         <NavLink to='/login' id='login-link'>Sign in</NavLink>

@@ -8,31 +8,32 @@ export default function AddNotebookForm({ closeAddForm }) {
     const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [errors, setErrors] = useState([])
+    const [showErrors, setShowErrors] = useState(false)
 
     const sessionUser = useSelector(state => state?.session?.user)
 
 
     useEffect(() => {
+        setShowErrors(false)
         const errors = []
         if (!name) errors.push('Please name your notebook!')
-        if (name.length > 255) errors.push('The name of your notebook is too long!')
+        if (name.length > 20) errors.push('The name of your notebook is too long!')
         if (errors) setErrors(errors)
     }, [name])
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        const payload = {
+    if (errors.length < 1) {
+        const notebook = {
             user_id: sessionUser.id,
             name,
-        }
-        const newNotebook = await dispatch(addANotebook(payload))
-        if (newNotebook) {
-            closeAddForm()
-        }
+        };
+        const newNotebook = await dispatch(addANotebook(notebook));
+    } else {
+        setShowErrors(true)
     }
-
+  };
 
     return (
         <div id='new-notebook-container'>
@@ -50,7 +51,7 @@ export default function AddNotebookForm({ closeAddForm }) {
                     />
                 </label>
                 <ul className="err-handling">
-                    {errors.length > 0 &&
+                    {showErrors &&
                         errors.map((error) => {
                             return <li key={error}>{error}</li>;
                         })}

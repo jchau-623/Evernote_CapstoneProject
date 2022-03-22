@@ -5,6 +5,13 @@ from app.forms.note_form import NoteForm
 
 
 note_routes = Blueprint('note', __name__)
+#  Turn WTForms validation errors into list
+def validation_errors_to_error_messages(validation_errors):
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 @note_routes.route('/', methods= ['PATCH'])
 def edit_note():
@@ -35,6 +42,7 @@ def delete_note():
     note_id = data['note_id']['noteId']
     note = Note.query.filter(Note.id == note_id).first()
 
+    print(data, 'this is data')
     db.session.delete(note)
     db.session.commit()
 

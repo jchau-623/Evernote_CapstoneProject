@@ -20,7 +20,10 @@ export default function DeleteNotebookButton({ notebookId }) {
 
         if (deletedNotebook) {
             for (let i = 0; i < filteredNotes.length; i++) {
-                const deletedNote = await dispatch(deleteANote(filteredNotes[i].id))
+                const payload = {
+                    note_id: filteredNotes[i].id
+                }
+                const deletedNote = await dispatch(deleteANote(payload))
             }
         }
     }

@@ -8,31 +8,36 @@ export default function AddNoteForm() {
     const [heading, setHeading] = useState('')
     const [description, setDescription] = useState('')
     const [errors, setErrors] = useState([])
+    const [showErrors, setShowErrors] = useState(false)
 
     const sessionUser = useSelector(state => state?.session?.user)
 
 
     useEffect(() => {
+        setShowErrors(false)
         const errors = []
         if (!heading) errors.push("Every note needs a heading!")
-        if (!description) errors.push("What's on your mind?")
-        if (heading.length > 255) errors.push("Your heading is too long!")
+        if (!description) errors.push("Please provide a description")
+        if (heading.length > 20) errors.push("Your heading is too long!")
         if (description.length > 2200) errors.push('Your body is too long!')
         if (errors) setErrors(errors)
     }, [heading, description])
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        const note = {
-            user_id: sessionUser.id,
-            heading,
-            description
+        if (errors.length < 1) {
+            const note = {
+                user_id: sessionUser.id,
+                heading,
+                description,
+            };
+            const newNote = await dispatch(addANote(note));
+        } else {
+            setShowErrors(true)
         }
-        {
-            const newNote = await dispatch(addANote(note))
-        }
-    }
+      };
+
 
     return (
         <div>
@@ -55,7 +60,7 @@ export default function AddNoteForm() {
                 // required
                 />
                 <ul className='err-handling'>
-                    {errors.length > 0 &&
+                    {showErrors &&
                         errors.map((error) => {
                             return <li key={error}>{error}</li>
                         })}

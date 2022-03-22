@@ -13,7 +13,7 @@ export default function SingleNotebookPage({ notebookId, notebookName }) {
     const notes = useSelector(state => state.notes.list)
     const notebooks = useSelector(state => state.notebooks.list)
     // const sessionUser = useSelector(state => state?.session?.user)
-    console.log(notebooks, 'this is notebook')
+    // console.log(notebooks, 'this is notebook')
 
 
     const filteredNotes = notes.filter(note => note.notebook_id === notebookId)

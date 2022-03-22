@@ -9,7 +9,7 @@ notebook_routes = Blueprint('notebook', __name__)
 @notebook_routes.route('/', methods=['DELETE'])
 def delete_notebook():
     data = request.json
-    print(data, 'this is data')
+    # print(data, 'this is data')
     notebook_id = data['notebook_id']
     notebook = Notebook.query.filter(Notebook.id == notebook_id).first()
 
