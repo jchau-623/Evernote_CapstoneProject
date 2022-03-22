@@ -8,6 +8,7 @@
     flex-direction: column;
     height:450px;
     width:500px;
+    /* border: 1px solid red; */
 }
 
 .title-input {
@@ -33,4 +34,12 @@
     display:flex;
     justify-content: center;
     width:80px;
+    margin-left: 20px;
+}
+
+.err-handling {
+    display: flex;
+    flex-direction: column;
+    color:#cc4539;
+    padding-left: 20px;
 }

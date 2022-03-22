@@ -1,6 +1,6 @@
 #new-notebook-container {
     width: 450px;
-    height:240px;
+    height:280px;
     display: flex;
     flex-direction: column;
     border-radius: 7px;
@@ -72,3 +72,10 @@ margin-left:20px;
     margin-top:20px;
     margin-left:20px;
 }
+
+.err-handling {
+        display: flex;
+        flex-direction: column;
+        color:#cc4539;
+        padding-left: 20px;
+    }

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 import everwrite from '../../assets/pencil.png'
 
 const LoginForm = () => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,11 +21,15 @@ const LoginForm = () => {
     }
   };
 
-  const demoLogin = (e) => {
+
+
+
+  const demoLogin = async (e) => {
     e.preventDefault();
     let email = 'demo@aa.io'
     let password = 'password'
-    dispatch(login(email, password))
+    await dispatch(login(email, password))
+    history.push("/");
   }
 
   const updateEmail = (e) => {
@@ -48,33 +53,35 @@ const LoginForm = () => {
         <form onSubmit={onLogin}>
           <div className='error-handling'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <div key={ind}>
+                {error}
+              </div>
             ))}
           </div>
           <div>
-          <div className='form-field-container'>
-            <label htmlFor='email'>Email</label>
-            <input
-            className='form-field'
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
+            <div className='form-field-container'>
+              <label htmlFor='email'>Email</label>
+              <input
+                className='form-field'
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
           </div>
           <div>
-          <div className='form-field-container'>
-            <label htmlFor='password'>Password</label>
-            <input
-            className='form-field'
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
+            <div className='form-field-container'>
+              <label htmlFor='password'>Password</label>
+              <input
+                className='form-field'
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+              />
             </div>
             <button id='signup-btn' className='buttons' type='submit'>Continue</button>
             <button id='demo-login' onClick={demoLogin}>Demo User</button>

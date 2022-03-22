@@ -8,6 +8,7 @@ import AddNoteButton from '../AddNoteModal'
 import EditNoteButton from '../EditNoteModal'
 import { Modal } from '../../context/Modal'
 import EditNoteForm from '../EditNoteModal/EditNoteForm'
+import NotebooksPage from '../NotebooksPage'
 
 export default function NotesPage({ note }) {
 
@@ -71,6 +72,8 @@ export default function NotesPage({ note }) {
                                     <div className='note-container-time'>
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                     </div>
+                                    <div>
+                                        </div>
                                     <DeleteNoteButton noteId={note.id} />
                                     {/* <EditNoteForm note={note} />
                                     {showEditNoteModal && (

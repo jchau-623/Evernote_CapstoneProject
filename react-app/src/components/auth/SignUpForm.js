@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -23,6 +23,17 @@ const SignUpForm = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const errors = [];
+    if (username.length < 5)
+      errors.push("Username must be at least 5 characters!");
+    if (username.length > 30) errors.push("Username is too long!");
+    if (!email.includes("@")) errors.push("This is not a valid email!");
+    if (password.length < 5) errors.push("Please provide a longer password!");
+    if (repeatPassword !== password) errors.push("Your passwords do not match!");
+    setErrors(errors);
+  }, [username, password, email, password, repeatPassword]);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -52,9 +63,11 @@ const SignUpForm = () => {
         <div className='signup-form-motto'>Write everything important.</div>
         <form onSubmit={onSignUp}>
           <div className='error-handling'>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
+          {errors.map((error, ind) => (
+                <div key={ind}>
+                  {error}
+                </div>
+              ))}
           </div>
           <div>
             <div className='form-field-container'>
@@ -104,7 +117,7 @@ const SignUpForm = () => {
               ></input>
             </div>
           </div>
-          <button id='signup-btn' className='buttons' type='submit'>Sign Up</button>
+          <button disabled={errors.length > 0 ? true : false} id='signup-btn' className='buttons' type='submit'>Sign Up</button>
         </form>
         <div id='have-account'>Already have an account?</div>
         <NavLink to='/login' id='login-link'>Sign in</NavLink>
