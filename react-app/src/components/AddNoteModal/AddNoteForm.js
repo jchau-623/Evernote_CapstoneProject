@@ -33,6 +33,8 @@ export default function AddNoteForm() {
                 description,
             };
             const newNote = await dispatch(addANote(note));
+            // closeAddNoteModal()
+
         } else {
             setShowErrors(true)
         }
