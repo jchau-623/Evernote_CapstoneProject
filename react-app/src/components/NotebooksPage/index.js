@@ -7,12 +7,14 @@ import EditNotebookButton from '../EditNotebookModal';
 import './NotebooksPage.css'
 import { Modal } from '../../context/Modal';
 import SingleNotebookPage from '../SingleNotebook';
-import EllipsisDropdown from './EllipsisDropdown';
+// import EllipsisDropdown from './EllipsisDropdown';
 
 export default function NotebooksPage() {
     const dispatch = useDispatch();
     const notebooks = useSelector(state => state?.notebooks?.list)
     const sessionUser = useSelector(state => state?.session?.user)
+    // console.log(firstEle, 'this is first ele')
+    // console.log(notebooks, 'this is notebooks')
 
     const [showOpenNotebookModal, setShowOpenNotebookModal] = useState(null)
     // const openOpenNotebookModal = () => setShowOpenNotebookModal(true)
@@ -31,7 +33,7 @@ export default function NotebooksPage() {
                     <div id='notebooks-title'>
                         Notebooks
                         <div id='new-notebook'>
-                        <i id='add-btn' className="fa-solid fa-plus"></i><AddNotebookButton />
+                            <i id='add-btn' className="fa-solid fa-plus"></i><AddNotebookButton />
                         </div>
                     </div>
                     <div id='number-notebooks'>
@@ -47,27 +49,31 @@ export default function NotebooksPage() {
                     <div className='notebooks'>
                         {notebooks?.map((notebook, index) =>
                             <div key={index} className='one-notebook'>
-                                {/* <NavLink to={`${notebook.name}`} notebookId={notebook.id}> */}
-                                    <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'>{notebook.name}</div>
-                                {/* </NavLink> */}
+                                <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'>{notebook.name}</div>
                                 {showOpenNotebookModal === index && (
                                     <Modal onClose={closeOpenNotebookModal}>
                                         <SingleNotebookPage
-                                        closeModal={closeOpenNotebookModal}
-                                        notebookId = {notebook.id}
-                                        notebookName = {notebook.name}
+                                            closeModal={closeOpenNotebookModal}
+                                            notebookId={notebook.id}
+                                            notebookName={notebook.name}
                                         />
                                     </Modal>
                                 )}
-                                <div id='created-by-username' >{sessionUser.username}</div>
-                                <div id='delete-and-edit-notebook'>
-                                    <EditNotebookButton notebook={notebook} />
-                                    <DeleteNotebookButton notebookId={notebook.id} />
-                                    {/* <EllipsisDropdown /> */}
-                                </div>
+                                {/* {index > 0 ? */}
+                                { notebook.name !== 'First Notebook' ?
+                                <>
+                                    <div id='created-by-username' >{sessionUser.username}</div>
+                                    <div id='delete-and-edit-notebook'>
+                                        <EditNotebookButton notebook={notebook} />
+                                        <DeleteNotebookButton notebookId={notebook.id} />
+                                    </div>
+                                </>
+                                : null
+                            }
                             </div>
                         )}
                     </div>
+
                 </div>
             </div>
         </div>

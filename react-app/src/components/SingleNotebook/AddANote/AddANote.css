@@ -3,7 +3,7 @@
     flex-direction: column;
     padding-top:10px;
     width:150px;
-    height:200px;
+    height:100%;
 }
 
 .small-title-input {
@@ -24,4 +24,5 @@ resize: none;
     width:80px;
     font-size: 12px;
     margin-left: 10px;
+    margin-top: 0px;
 }
