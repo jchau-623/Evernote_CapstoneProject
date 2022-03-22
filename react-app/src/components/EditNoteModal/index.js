@@ -7,6 +7,12 @@ import { Modal } from '../../context/Modal';
 export default function EditNoteButton({note}) {
     const dispatch = useDispatch();
     const [showEditNoteModal, setShowEditNoteModal] = useState(false)
+    // console.log(note,'this is note')
+
+
+    const closeEditNoteModal = (e) => {
+        setShowEditNoteModal(false)
+    }
 
     const openEditNoteModal = () => {
         if (showEditNoteModal) return;
@@ -26,7 +32,7 @@ export default function EditNoteButton({note}) {
         <button id='edit-note-button' onClick={openEditNoteModal}>Edit Note</button>
         {showEditNoteModal && (
             <Modal onClose={() => setShowEditNoteModal(false)} >
-                <EditNoteForm note={note} />
+                <EditNoteForm closeForm={closeEditNoteModal} note={note} />
             </Modal>
         )}
     </div>

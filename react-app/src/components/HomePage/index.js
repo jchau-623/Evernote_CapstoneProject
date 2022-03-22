@@ -25,8 +25,8 @@ export default function HomePage() {
                 </NavLink>
                 <div className="containers-spacing">
                     <div className="only-containers">
-                        {notes.map((note) =>
-                            <div className='main-notes-container'>
+                        {notes.map((note ,i) =>
+                            <div key={i} className='main-notes-container'>
                                 <div className="note-container-heading">{note.heading}
                                 </div>
                                 <div className="note-container-description">{note.description}

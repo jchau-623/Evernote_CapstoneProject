@@ -19,7 +19,7 @@
 
 .all-notes {
     padding-top: 10px;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 .all-notes::-webkit-scrollbar {

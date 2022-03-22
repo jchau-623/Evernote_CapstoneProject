@@ -23,5 +23,18 @@ class Note(db.Model):
             'notebook_id': self.notebook_id,
             'heading': self.heading,
             'description': self.description,
-            'created_at': self.created_at
+            'created_at': self.created_at,
+            'notebook': self.notebook.to_dict()
+        }
+
+
+    def test(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'notebook_id': self.notebook_id,
+            'heading': self.heading,
+            'description': self.description,
+            'created_at': self.created_at,
+            # 'notebook': self.notebook.to_dict()
         }

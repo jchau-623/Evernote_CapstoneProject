@@ -114,6 +114,25 @@ export const addANote = (payload) => async dispatch => {
     }
 }
 
+export const addANoteInNotebook = (payload) => async dispatch => {
+    const res = await fetch('/api/notes/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            user_id: payload.user_id,
+            note_id: payload.note_id,
+            heading: payload.heading,
+            description: payload.description,
+            notebook_id: payload.notebook_id
+        })
+    })
+    if (res.ok) {
+        const note = await res.json()
+        dispatch(addNote(note.note))
+        return note
+    }
+}
+
 const initialState = {
     list: []
 }

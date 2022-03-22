@@ -11,7 +11,7 @@ export const timePassed = (milliseconds) => {
 
     if (pastSecond <= 60 && pastMinute === 0 && pastHour === 0 && pastDay === 0) return `< 1m`;
     if (pastMinute <= 60 && pastHour === 0 && pastDay === 0) return `${pastMinute}m`;
-    if (pastHour <= 60 && pastDay === 0) return `${pastHour }h`;
+    if (pastHour <= 60 && pastDay === 0) return `${pastHour - 4 }h`;
     if (pastDay >= 2 || pastHour > 24) return `${pastDay}d`;
 
 }

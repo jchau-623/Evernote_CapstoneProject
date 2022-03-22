@@ -1,0 +1,27 @@
+.small-form-container {
+    display:flex;
+    flex-direction: column;
+    padding-top:10px;
+    width:150px;
+    height:100px
+}
+
+.small-title-input {
+height:20px;
+width:100px;
+margin-left: 10px;
+}
+
+.small-textarea-input {
+margin-left:10px;
+height:20px;
+width:200px;
+margin-top: 5px;
+resize: none;
+}
+
+#small-add-note-submit {
+    width:80px;
+    font-size: 12px;
+    margin-left: 10px;
+}

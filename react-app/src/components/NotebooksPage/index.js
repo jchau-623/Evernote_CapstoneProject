@@ -31,7 +31,7 @@ export default function NotebooksPage() {
                     <div id='notebooks-title'>
                         Notebooks
                         <div id='new-notebook'>
-                        <i id='add-btn' class="fa-solid fa-plus"></i><AddNotebookButton />
+                        <i id='add-btn' className="fa-solid fa-plus"></i><AddNotebookButton />
                         </div>
                     </div>
                     <div id='number-notebooks'>

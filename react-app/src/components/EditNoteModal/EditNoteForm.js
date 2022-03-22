@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateNote } from "../../store/notes";
 
-export default function EditNoteForm( {note} ) {
+export default function EditNoteForm( {note, closeForm} ) {
     const dispatch = useDispatch();
     const [heading, setHeading] = useState(note.heading)
     const [description, setDescription] = useState(note.description)
 
     const sessionUser = useSelector(state => state?.session?.user)
+    // console.log(note, 'this is note')
 
     const handleEdit = async (e) => {
         e.preventDefault();
@@ -16,11 +17,11 @@ export default function EditNoteForm( {note} ) {
             user_id: sessionUser.id,
             note_id: note.id,
             heading,
-            description
+            description,
+            // notebook_id: notebookId
         }
 
         const newNote = await dispatch(updateNote(payload))
-
     }
 
     return (
@@ -33,7 +34,7 @@ export default function EditNoteForm( {note} ) {
                     value={heading}
                     placeholder='Title'
                     onChange = {(e)=> setHeading(e.target.value)}
-                    // required
+                    required
                 />
             </label>
             <textarea
@@ -41,9 +42,10 @@ export default function EditNoteForm( {note} ) {
                 value={description}
                 placeholder='Start writing'
                 onChange = {(e)=> setDescription(e.target.value)}
-                // required
+                required
             />
             <button className='buttons'  id='edit-note-submit' onClick={handleEdit}>Submit</button>
+            {/* <button className="buttons" id='cancel-button' onClick={closeForm}>Cancel</button> */}
             </form>
         </div>
     )

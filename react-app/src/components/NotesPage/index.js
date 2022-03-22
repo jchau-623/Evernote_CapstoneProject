@@ -13,18 +13,27 @@ export default function NotesPage({ note }) {
 
 
 
-    const [showEditNoteModal, setShowEditNoteModal] = useState(false)
+    const [showEditNoteModal, setShowEditNoteModal] = useState(null)
 
-    const openEditNoteModal = () => {
+    useEffect(() => {
+
+    }, [showEditNoteModal])
+
+    const closeModal = (e) => {
+        e.stopPropagation()
+        setShowEditNoteModal(false)
+    }
+
+    const openEditNoteModal = (index) => {
         if (showEditNoteModal) return;
-        setShowEditNoteModal(true)
+        setShowEditNoteModal(index)
     }
 
     useEffect(() => {
         if (!showEditNoteModal) return
 
         const closeEditNoteModal = (e) => {
-            setShowEditNoteModal(false)
+            setShowEditNoteModal(null)
         }
     }, [showEditNoteModal])
 
@@ -49,9 +58,9 @@ export default function NotesPage({ note }) {
                         </div>
                         <div id='flip-around'>
                             {notes.map((note, index) =>
-                                <div key={index} className='note-container' onClick={openEditNoteModal} >
-                                    {showEditNoteModal && (
-                                        <Modal onClose={() => setShowEditNoteModal(false)} >
+                                <div key={index} className='note-container' onClick={() => openEditNoteModal(index)} >
+                                    {showEditNoteModal === index && (
+                                        <Modal onClose={closeModal} >
                                             <EditNoteForm note={note} />
                                         </Modal>
                                     )}
@@ -63,6 +72,12 @@ export default function NotesPage({ note }) {
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                     </div>
                                     <DeleteNoteButton noteId={note.id} />
+                                    {/* <EditNoteForm note={note} />
+                                    {showEditNoteModal && (
+                                        <Modal onClose={() => setShowEditNoteModal(false)} >
+                                            <EditNoteForm note={note} />
+                                        </Modal>
+                                    )} */}
                                 </div>
                             )}
                         </div>

@@ -45,14 +45,25 @@ def add_note():
     data = request.json
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print(data, '---------')
+    print(len(data.keys()), 'this is data length')
     if form.validate_on_submit():
-        note = Note(
-            user_id = data['user_id'],
-            heading = data['heading'],
-            description = data['description'],
-            # notebook_id = data['notebook_id']
-        )
+        if (len(data.keys()) > 3):
+            note = Note(
+                user_id = data['user_id'],
+                heading = data['heading'],
+                description = data['description'],
+                notebook_id = data['notebook_id']
+            )
+        else:
+            note = Note(
+                user_id = data['user_id'],
+                heading = data['heading'],
+                description = data['description'],
+            )
+
+
+
     # print(note, '-------------')
     db.session.add(note)
     db.session.commit()

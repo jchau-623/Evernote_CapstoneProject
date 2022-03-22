@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getNotes } from '../../store/notes';
 import { getNotebooks } from '../../store/notebooks';
 import './SingleNotebook.css'
+import AddANoteButton from './AddANote';
 
 
 export default function SingleNotebookPage({ notebookId, notebookName }) {
@@ -37,8 +38,8 @@ export default function SingleNotebookPage({ notebookId, notebookName }) {
                     </div>
 
                 )}
+                    <AddANoteButton notebookId={notebookId}/>
                 </div>
-                    
             </div>
 
         </>

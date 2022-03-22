@@ -6,6 +6,7 @@ import './EditNotebook.css'
 export default function EditNotebookForm({ notebook, closeForm }) {
     const dispatch = useDispatch();
     const [name, setName] = useState(notebook.name)
+    const [errors, setErrors] = useState([]);
     // console.log(name, 'this is name')
 
     const sessionUser = useSelector(state => state?.session?.user)
@@ -38,7 +39,7 @@ export default function EditNotebookForm({ notebook, closeForm }) {
                         value={name}
                         placeholder='Notebook name'
                         onChange={(e) => setName(e.target.value)}
-                    // required
+                        required
                     />
                 </label>
                 <div className="edit-and-delete-button">
