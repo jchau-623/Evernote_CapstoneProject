@@ -19,4 +19,39 @@ JavaScript | Python | Flask | React | Redux | HTML | CSS | Node | Postgres | Seq
 ## Getting Started
 
 1. Clone the project repository
-    
+        
+        git clone https://github.com/jchau-623/Everwrite_CapstoneProject.git
+        
+2. CD into the app directory and install dependencies
+        
+        pipenv install
+        
+3. CD into the react-app directory and install dependencies
+        
+        npm install
+        
+4. Create your .env file based off the .env.example file
+
+5. Setup your PostgreSQL user, password, database, and verify that it matches your .env file
+
+6. Run these commands in order to start your shell, migrate the database, seed the database, and then run the flask app
+
+        pipenv shell
+
+
+        flask db upgrade
+
+
+        flask seed all
+
+
+        flask run
+        
+7. Open another terminal, CD into the react-app directory and run the React App
+
+        npm start
+        
+## In Development
+
+This app still has many features in development, including the ability to share notebooks with other users, upload images, and create tasks with due dates!
+
