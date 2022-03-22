@@ -23,5 +23,4 @@ export default function DeleteNoteButton(noteId) {
             <button className="delete-button" onClick={handleSubmit}>Delete</button>
         </div>
     )
-
 }

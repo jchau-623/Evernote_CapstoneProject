@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+// import {add}
 import './LoginForm.css'
 import everwrite from '../../assets/pencil.png'
 
@@ -19,6 +20,8 @@ const SignUpForm = () => {
     e.preventDefault();
     if (errors.length < 1) {
       const data = await dispatch(signUp(username, email, password));
+      // console.log(data,'this is data')
+      // if (data === null)
     } else {
       setShowErrors(true)
     }
