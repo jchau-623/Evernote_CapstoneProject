@@ -14,14 +14,9 @@ Everwrite, a full-stack application based off Evernote, is a note taking app tha
 
 <img src="react-app/public/images/Javascript.png" width="40" height="40"><img src="react-app/public/images/Python.png" width="40" height="40"><img src="react-app/public/images/Flask.png" width="40" height="40"><img src="react-app/public/images/React.png" width="40" height="40"><img src="react-app/public/images/Redux.png" width="40" height="40"><img src="react-app/public/images/HTML.png" width="40" height="40"><img src="react-app/public/images/CSS.png" width="40" height="40"><img src="react-app/public/images/Node.png" width="40" height="40"><img src="react-app/public/images/PostgresQL.png" width="40" height="40"><img src="react-app/public/images/SQLA.png" width="40" height="40">
 
+JavaScript | Python | Flask | React | Redux | HTML | CSS | Node | Postgres | Sequel Alchemy
 
-- JavaScript
-- Python
-- Flask
-- React
-- Redux
-- HTML
-- CSS
-- Node
-- Postgres
-- Sequel Alchemy
+## Getting Started
+
+1. Clone the project repository
+    
