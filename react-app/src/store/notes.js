@@ -96,7 +96,7 @@ export const deleteANote = (payload) => async dispatch => {
 		console.log("NOTE WAS NOT DELETED");
 	}
 }
-export const addANote = (payload) => async dispatch => {
+export const addANotetoFirstNotebook = (payload) => async dispatch => {
     const res = await fetch('/api/notes/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -105,6 +105,7 @@ export const addANote = (payload) => async dispatch => {
             note_id: payload.note_id,
             heading: payload.heading,
             description: payload.description,
+            notebook_id: payload.firstnotebookId
         })
     })
     if (res.ok) {

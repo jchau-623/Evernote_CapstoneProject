@@ -39,27 +39,6 @@ def seed_notes():
     user_id='1',
     created_at=now
     ),
-    Note(
-    heading='Demo heading',
-    description='Demo description',
-    notebook_id='1',
-    user_id='1',
-    created_at=now
-    ),
-    Note(
-    heading='Marnie heading',
-    description='Marnie description',
-    notebook_id='1',
-    user_id='2',
-    created_at=now
-    ),
-    Note(
-    heading='Bobbie heading',
-    description='Bobbie description',
-    notebook_id='1',
-    user_id='3',
-    created_at=now
-    ),
     ]
 
     for note in notes:

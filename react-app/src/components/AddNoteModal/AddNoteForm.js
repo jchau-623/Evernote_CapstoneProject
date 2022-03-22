@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { React, useEffect, useState } from "react";
-import { addANote } from '../../store/notes';
+import { addANotetoFirstNotebook } from '../../store/notes';
 import './AddNoteButton.css'
 
 export default function AddNoteForm() {
@@ -11,6 +11,8 @@ export default function AddNoteForm() {
     const [showErrors, setShowErrors] = useState(false)
 
     const sessionUser = useSelector(state => state?.session?.user)
+    const firstNotebook = useSelector(state => state.notebooks.list[0])
+    console.log(firstNotebook, 'this is first notebook')
 
 
     useEffect(() => {
@@ -29,10 +31,12 @@ export default function AddNoteForm() {
         if (errors.length < 1) {
             const note = {
                 user_id: sessionUser.id,
+                firstnotebookId: firstNotebook.id,
                 heading,
                 description,
+
             };
-            const newNote = await dispatch(addANote(note));
+            const newNote = await dispatch(addANotetoFirstNotebook(note));
             // closeAddNoteModal()
 
         } else {

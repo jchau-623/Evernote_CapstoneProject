@@ -13,11 +13,8 @@ export default function NotebooksPage() {
     const dispatch = useDispatch();
     const notebooks = useSelector(state => state?.notebooks?.list)
     const sessionUser = useSelector(state => state?.session?.user)
-    // console.log(firstEle, 'this is first ele')
-    // console.log(notebooks, 'this is notebooks')
 
     const [showOpenNotebookModal, setShowOpenNotebookModal] = useState(null)
-    // const openOpenNotebookModal = () => setShowOpenNotebookModal(true)
     const closeOpenNotebookModal = () => setShowOpenNotebookModal(false)
 
 

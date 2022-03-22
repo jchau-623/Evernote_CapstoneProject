@@ -26,7 +26,7 @@ export default function AddANoteButton({ notebookId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const inputs = document.querySelectorAll('.small-title-input, .small-textarea-input')
+        // const inputs = document.querySelectorAll('.small-title-input, .small-textarea-input')
         if (errors.length < 1) {
             const note = {
                 user_id: sessionUser.id,
@@ -35,9 +35,9 @@ export default function AddANoteButton({ notebookId }) {
                 notebook_id: notebookId
             };
             const newNote = await dispatch(addANoteInNotebook(note));
-            inputs.forEach(input => {
-                input.value = '';
-              });
+            // inputs.forEach(input => {
+            //     input.value = '';
+            //   });
         } else {
             setShowErrors(true)
         }

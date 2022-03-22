@@ -7,16 +7,6 @@ def seed_users():
         email='demo@aa.io',
         password='password',
     ),
-    User(
-        username='marnie',
-        email='marnie@aa.io',
-        password='password'
-    ),
-    User(
-        username='bobbie',
-        email='bobbie@aa.io',
-        password='password'
-    )
     ]
 
 

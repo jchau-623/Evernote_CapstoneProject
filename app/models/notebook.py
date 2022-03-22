@@ -8,7 +8,7 @@ class Notebook(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'),nullable=False)
 
     user = db.relationship('User', back_populates='notebooks')
-    notes = db.relationship('Note', back_populates='notebook', cascade='all, delete-orphan')
+    notes = db.relationship('Note', back_populates='notebook', cascade='all,delete')
 
     def to_dict(self):
 
