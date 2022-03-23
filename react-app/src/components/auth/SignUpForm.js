@@ -34,6 +34,7 @@ const SignUpForm = () => {
       errors.push("Username must be at least 5 characters");
     if (username.length > 30) errors.push("Username is too long");
     if (!email.includes("@" && ".")) errors.push("This is not a valid email");
+    if (username === email) errors.push('Username/email cannot be the same')
     if (password.length < 5) errors.push("Please provide a longer password");
     if (repeatPassword !== password) errors.push("Your passwords do not match");
     setErrors(errors);

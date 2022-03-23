@@ -34,7 +34,7 @@ export default function SingleNotebookPage({ notebookId, notebookName }) {
             <div className='modal-container'>
                 <div className='notebook-heading'>{notebookName}</div>
                 <div className='all-notes'>{filteredNotes.map((note, index) =>
-                    <div>
+                    <div key={index}>
                         <div id='each-note' key={index}>{note.heading}
                             <div id='delete-button-in-notebook'>
                                 <DeleteNoteButton noteId={note.id} />

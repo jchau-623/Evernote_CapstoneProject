@@ -38,8 +38,9 @@ def get_notes():
 @note_routes.route('/', methods= ['DELETE'])
 def delete_note():
     data = request.json
-
+    print(data,'this is data')
     note_id = data['note_id']['noteId']
+    print(note_id, 'this is note_id')
     # note = Note.query.filter(Note.id == note_id).first()
     note = Note.query.get(note_id)
 

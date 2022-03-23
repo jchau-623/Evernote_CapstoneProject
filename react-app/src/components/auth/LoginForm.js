@@ -14,7 +14,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
 
   const user = useSelector(state => state.session.user);
-  console.log(user, 'this is user')
+  // console.log(user, 'this is user')
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
