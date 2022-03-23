@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired
 from app.models import Notebook
 
 class NotebookForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired('Name your notebook!')])
+    name = StringField('name', validators=[DataRequired('Name your notebook')])
     submit = SubmitField('submit')
