@@ -4,6 +4,8 @@ import { getNotes } from '../../store/notes';
 import { getNotebooks } from '../../store/notebooks';
 import './SingleNotebook.css'
 import AddANoteButton from './AddANote';
+import DeleteNoteButton from '../DeleteNoteButton';
+import EditNoteButton from './EditNoteButton'
 
 
 export default function SingleNotebookPage({ notebookId, notebookName }) {
@@ -32,13 +34,20 @@ export default function SingleNotebookPage({ notebookId, notebookName }) {
             <div className='modal-container'>
                 <div className='notebook-heading'>{notebookName}</div>
                 <div className='all-notes'>{filteredNotes.map((note, index) =>
-                    <div id='each-note' key={index}>{note.heading}
+                    <div>
+                        <div id='each-note' key={index}>{note.heading}
+                            <div id='delete-button-in-notebook'>
+                                <DeleteNoteButton noteId={note.id} />
+                                {/* <EditNoteButton note={note} /> */}
+                            </div>
+                        </div>
                         <div id='each-note-description'>{note.description}
                         </div>
                     </div>
 
+
                 )}
-                    <AddANoteButton notebookId={notebookId}/>
+                    <AddANoteButton notebookId={notebookId} />
                 </div>
             </div>
 

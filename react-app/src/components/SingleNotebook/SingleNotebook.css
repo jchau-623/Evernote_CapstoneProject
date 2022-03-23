@@ -30,14 +30,20 @@
     padding-left:10px;
     padding-top:10px;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #each-note-description {
     color:#737373;
     font-size: 14px;
+    padding-left:10px;
 }
 
 #delete-and-edit-notebook {
     display:flex
+}
+
+#delete-button-in-notebook {
+    margin-right: 10px;
 }
