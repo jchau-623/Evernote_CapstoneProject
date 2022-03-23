@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getNotes } from "../../store/notes";
 import './HomePage.css'
 import { timePassed } from "../NotesPage/utils";
+import moment from 'moment'
 
 export default function HomePage() {
     const dispatch = useDispatch()
@@ -32,7 +33,7 @@ export default function HomePage() {
                                 <div className="note-container-description">{note.description}
                                 </div>
                                 <div className="note-container-time">
-                                    {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
+                                    {moment(note?.created_at).fromNow()}
                                 </div>
                             </div>
                         )}

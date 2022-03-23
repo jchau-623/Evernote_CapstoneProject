@@ -10,6 +10,7 @@ import { Modal } from '../../context/Modal'
 import EditNoteForm from '../EditNoteModal/EditNoteForm'
 import NotebooksPage from '../NotebooksPage'
 import { getNotebooks } from '../../store/notebooks'
+import moment from 'moment'
 
 export default function NotesPage({ note }) {
 
@@ -72,8 +73,11 @@ export default function NotesPage({ note }) {
                                     <div className='note-container-description'>{note.description}
                                     </div>
 
-                                    <div className='note-container-time'>
+                                    {/* <div className='note-container-time'>
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
+                                    </div> */}
+                                    <div className="note-container-time">
+                                        {moment(note?.created_at).fromNow()}
                                     </div>
                                     <div>
                                     </div>
