@@ -30,6 +30,9 @@ export default function AddNotebookForm({ closeAddForm }) {
             name,
         };
         const newNotebook = await dispatch(addANotebook(notebook));
+        if (newNotebook) {
+            closeAddForm()
+        }
     } else {
         setShowErrors(true)
     }

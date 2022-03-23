@@ -14,8 +14,8 @@ export default function EditNotebookForm({ notebook, closeForm }) {
     useEffect(() => {
         setShowErrors(false)
         const errors = []
-        if (!name) errors.push('Please name your notebook!')
-        if (name.length > 20) errors.push('The name of your notebook is too long!')
+        if (!name) errors.push('Please name your notebook')
+        if (name.length > 20) errors.push('The name of your notebook is too long')
         if (errors) setErrors(errors)
     }, [name])
 

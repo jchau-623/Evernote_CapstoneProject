@@ -16,10 +16,10 @@ export default function EditNoteForm({ note, closeForm }) {
     useEffect(() => {
         setShowErrors(false)
         const errors = []
-        if (!heading) errors.push("Every note needs a heading!")
+        if (!heading) errors.push("Every note needs a heading")
         if (!description) errors.push("Please provide a description")
-        if (heading.length > 20) errors.push("Your heading is too long!")
-        if (description.length > 2200) errors.push('Your body is too long!')
+        if (heading.length > 20) errors.push("Your heading is too long")
+        if (description.length > 2200) errors.push('Your body is too long')
         if (errors) setErrors(errors)
     }, [heading, description])
 
@@ -62,7 +62,7 @@ export default function EditNoteForm({ note, closeForm }) {
                     onChange={(e) => setDescription(e.target.value)}
                     required
                 />
-                   <ul className='err-handling'>
+                <ul className='err-handling'>
                     {showErrors &&
                         errors.map((error) => {
                             return <li key={error}>{error}</li>
