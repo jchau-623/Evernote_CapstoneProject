@@ -40,7 +40,8 @@ def delete_note():
     data = request.json
 
     note_id = data['note_id']['noteId']
-    note = Note.query.filter(Note.id == note_id).first()
+    # note = Note.query.filter(Note.id == note_id).first()
+    note = Note.query.get(note_id)
 
     print(data, 'this is data')
     db.session.delete(note)

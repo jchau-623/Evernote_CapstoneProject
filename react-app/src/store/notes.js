@@ -105,7 +105,7 @@ export const addANotetoFirstNotebook = (payload) => async dispatch => {
             note_id: payload.note_id,
             heading: payload.heading,
             description: payload.description,
-            notebook_id: payload.firstnotebookId
+            notebook_id: payload.firstNotebookId
         })
     })
     if (res.ok) {

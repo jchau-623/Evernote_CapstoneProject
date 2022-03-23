@@ -1,0 +1,13 @@
+.err-page-container {
+    display:flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#fourohfour {
+    padding-left: 45px;
+}
+
+.not-found-text {
+    font-size: 30px;
+}

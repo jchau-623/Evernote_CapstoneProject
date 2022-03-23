@@ -9,6 +9,7 @@ import EditNoteButton from '../EditNoteModal'
 import { Modal } from '../../context/Modal'
 import EditNoteForm from '../EditNoteModal/EditNoteForm'
 import NotebooksPage from '../NotebooksPage'
+import { getNotebooks } from '../../store/notebooks'
 
 export default function NotesPage({ note }) {
 
@@ -43,7 +44,7 @@ export default function NotesPage({ note }) {
 
     useEffect(() => {
         dispatch(getNotes())
-
+        dispatch(getNotebooks())
     }, [dispatch])
 
     return (

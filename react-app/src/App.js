@@ -5,13 +5,12 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/index'
 import ProtectedRoute from './components/auth/ProtectedRoute';
-// import UsersList from './components/UsersList';
-// import User from './components/User';
 import { authenticate } from './store/session';
 import NotesPage from './components/NotesPage';
 import Footer from './components/Footer';
 import NotebooksPage from './components/NotebooksPage';
 import HomePage from './components/HomePage';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 // import SingleNotebookPage from './components/SingleNotebook';
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
   const user = useSelector(({ session }) => session.user);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    {user && <NavBar />}
+      {user && <NavBar />}
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -41,24 +40,21 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
           <HomePage />
         </ProtectedRoute>
         <ProtectedRoute path='/notes' exact={true}>
-            <NotesPage />
+          <NotesPage />
         </ProtectedRoute>
         <ProtectedRoute path='/notebooks' exact={true}>
-            <NotebooksPage />
+          <NotebooksPage />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/:name' exact={true} >
           <SingleNotebookPage  />
         </ProtectedRoute> */}
+        <Route path="*">
+          <ErrorPage />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

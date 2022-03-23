@@ -11,8 +11,8 @@ export default function AddNoteForm() {
     const [showErrors, setShowErrors] = useState(false)
 
     const sessionUser = useSelector(state => state?.session?.user)
-    const firstNotebook = useSelector(state => state.notebooks.list[0])
-    console.log(firstNotebook, 'this is first notebook')
+    const firstNotebook = useSelector(state => state?.notebooks?.list[0])
+    // console.log(firstNotebook, 'this is first notebook')
 
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function AddNoteForm() {
         if (errors.length < 1) {
             const note = {
                 user_id: sessionUser.id,
-                firstnotebookId: firstNotebook.id,
+                firstNotebookId: firstNotebook?.id,
                 heading,
                 description,
 

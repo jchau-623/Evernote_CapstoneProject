@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, Notebook
+from app.models import db, Notebook, Note
 from app.forms.notebook_form import NotebookForm
 
 
@@ -9,9 +9,13 @@ notebook_routes = Blueprint('notebook', __name__)
 @notebook_routes.route('/', methods=['DELETE'])
 def delete_notebook():
     data = request.json
-    # print(data, 'this is data')
     notebook_id = data['notebook_id']
-    notebook = Notebook.query.filter(Notebook.id == notebook_id).first()
+    notes = Note.query.filter(Note.notebook_id == notebook_id)
+    for note in notes:
+        db.session.delete(note)
+        db.session.commit()
+
+    notebook = Notebook.query.get(notebook_id)
 
     db.session.delete(notebook)
     db.session.commit()
