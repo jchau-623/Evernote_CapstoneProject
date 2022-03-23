@@ -1,11 +1,11 @@
 import './ErrorPage.css'
+import everwrite404 from '../../assets/everwrite-404.jpg'
 
 export default function ErrorPage() {
     return (
         <div className='err-page-container' >
-            <div className='not-found-text'>
-                <div id='fourohfour'>404</div>
-                <div id='not-found'>Not Found</div>
+            <div>
+            <img className='error-pic' src={everwrite404} alt='404-pic'></img>
             </div>
         </div>
     )

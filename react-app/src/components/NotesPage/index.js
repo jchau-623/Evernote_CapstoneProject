@@ -70,11 +70,12 @@ export default function NotesPage({ note }) {
                                     </div>
                                     <div className='note-container-description'>{note.description}
                                     </div>
+
                                     <div className='note-container-time'>
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                     </div>
                                     <div>
-                                        </div>
+                                    </div>
                                     <DeleteNoteButton noteId={note.id} />
                                     {/* <EditNoteForm note={note} />
                                     {showEditNoteModal && (

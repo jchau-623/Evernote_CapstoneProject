@@ -11,3 +11,8 @@
 .not-found-text {
     font-size: 30px;
 }
+
+.error-pic {
+    height:628px;
+    object-fit: cover;
+}
