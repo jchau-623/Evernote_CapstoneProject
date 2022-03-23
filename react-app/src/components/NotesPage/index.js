@@ -53,7 +53,8 @@ export default function NotesPage({ note }) {
                 <div>
                     <div className='large-square'>
                         <div id='notes-heading'>
-                            <div id='notes-and-icon'>Notes</div>
+                            <div id='notes-and-icon'><i id='note-note-page' class="fa-solid fa-note"></i>Notes
+                            </div>
                             <div className='notes-number'>
                                 {notes.length} notes
                             </div>

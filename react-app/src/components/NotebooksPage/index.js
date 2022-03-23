@@ -56,8 +56,8 @@ export default function NotebooksPage() {
                                         />
                                     </Modal>
                                 )}
-                                {/* {index > 0 ? */}
-                                { notebook.name !== 'First Notebook' ?
+                                {/* {notebook.name !== 'First Notebook' */}
+                                { index > 0 ?
                                 <>
                                     <div id='created-by-username' >{sessionUser.username}</div>
                                     <div id='delete-and-edit-notebook'>

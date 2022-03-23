@@ -1,6 +1,6 @@
 #add-notebook-container {
     width: 450px;
-    height:220px;
+    height:270px;
     display: flex;
     flex-direction: column;
     border-radius: 7px;

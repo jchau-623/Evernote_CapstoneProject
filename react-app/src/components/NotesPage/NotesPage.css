@@ -96,3 +96,7 @@
     height:60px;
     object-fit: cover;
 }
+
+#note-note-page {
+    margin-right:10px;
+}
