@@ -9,29 +9,30 @@ const LoginForm = () => {
 
   const history = useHistory();
   const [errors, setErrors] = useState([]);
-  const [showErrors, setShowErrors] = useState(false)
+  // const [showErrors, setShowErrors] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const user = useSelector(state => state.session.user);
+  console.log(user, 'this is user')
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
     e.preventDefault();
-    if (errors.length < 1) {
       const data = await dispatch(login(email, password));
-    } else {
-      setShowErrors(true)
-    }
+      if (data) {
+        setErrors(data)
+      }
   };
 
 
-  useEffect(() => {
-    setShowErrors(false)
-    const errors = []
-    if (!email.includes("@")) errors.push("This is not a valid email");
-    if (password.length < 1) errors.push("Please enter your password");
-    setErrors(errors);
-  }, [email,password])
+  // useEffect(() => {
+  //   setShowErrors(false)
+  //   const errors = []
+  //   if (!email.includes("@" && ".")) errors.push("This is not a valid email");
+  //   if (password.length < 1) errors.push("Please enter your password");
+  //   setErrors(errors);
+  // }, [email,password])
 
   const demoLogin = async (e) => {
     e.preventDefault();
@@ -60,11 +61,10 @@ const LoginForm = () => {
         <div className='signup-form-heading'>Everwrite</div>
         <div className='signup-form-motto'>Write everything important.</div>
         <form onSubmit={onLogin}>
-          <div className='error-handling'>
-            {showErrors &&
-            errors.map((error) => {
-            return <li key={error}>{error}</li>
-            })}
+        <div className='error-handling'>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
           </div>
           <div>
             <div className='form-field-container'>
