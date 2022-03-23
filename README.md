@@ -57,8 +57,8 @@ JavaScript | Python | Flask | React | Redux | HTML | CSS | Node | Postgres | Seq
 
 Users can log in with an existing account or sign up and create a new account. There is also a demo option so users can quickly explore the site.
        
-<img src='react-app/public/images/read-me-imgs/login-page.png'></img>
-<img src='react-app/public/images/read-me-imgs/Sign-up.png'></img>
+<img src='react-app/public/images/login-page.png'></img>
+<img src='react-app/public/images/Sign-up.png'></img>
         
 ## In Development
 
