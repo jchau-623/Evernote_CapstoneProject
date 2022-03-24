@@ -35,6 +35,8 @@ export default function AddANoteButton({ notebookId }) {
                 notebook_id: notebookId
             };
             const newNote = await dispatch(addANoteInNotebook(note));
+            setHeading('')
+            setDescription('')
             // inputs.forEach(input => {
             //     input.value = '';
             //   });
