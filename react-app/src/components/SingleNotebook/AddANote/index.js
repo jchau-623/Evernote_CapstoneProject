@@ -17,7 +17,7 @@ export default function AddANoteButton({ notebookId }) {
     useEffect(() => {
         setShowErrors(false)
         const errors = [];
-        if (!heading) errors.push("Every note needs a heading!");
+        if (!heading) errors.push("Every note needs a heading");
         if (!description) errors.push("Please provide a description");
         if (heading.length > 20) errors.push("Your heading is too long!");
         if (description.length > 2200) errors.push("Your body is too long!");
