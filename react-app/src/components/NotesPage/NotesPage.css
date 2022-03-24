@@ -88,7 +88,7 @@
 
 #flip-around {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 
 #big-notebook {

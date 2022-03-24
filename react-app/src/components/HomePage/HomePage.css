@@ -41,7 +41,7 @@
 
 .only-containers {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: flex-end;
     margin-bottom: 50px;
     margin-left: 10px;

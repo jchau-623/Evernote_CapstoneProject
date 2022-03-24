@@ -42,6 +42,7 @@ export default function NotesPage({ note }) {
 
     const dispatch = useDispatch();
     const notes = useSelector(state => state.notes.list)
+    notes.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     useEffect(() => {
         dispatch(getNotes())
