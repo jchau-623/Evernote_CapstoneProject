@@ -78,7 +78,11 @@
 }
 
 #created-by-username{
-    padding-left: 50px;
+    padding-right: 100px;
+}
+
+#triple-dot {
+    padding-right: 5px;
 }
 
 /* #edit-button {
@@ -101,4 +105,3 @@
     text-align: center;
     cursor: pointer;
 } */
-

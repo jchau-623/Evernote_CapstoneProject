@@ -6,36 +6,37 @@ import EditNotebookForm from './EditNotebookForm';
 import './EditNotebook.css'
 
 
-export default function EditNotebookButton({ notebook }) {
-    const dispatch = useDispatch();
-    const [showEditNotebookModal, setShowEditNotebookModal] = useState(false)
+export default function EditNotebookButton({ notebook, setShowEditNotebookModal }) {
+    // const dispatch = useDispatch();
+    // const [showEditNotebookModal, setShowEditNotebookModal] = useState(false)
 
-    const closeEditNotebookModal = (e) => {
-        setShowEditNotebookModal(false)
-    }
+    // const closeEditNotebookModal = (e) => {
+    //     setShowEditNotebookModal(false)
+    // }
 
     const openEditNotebookModal = () => {
-        if (showEditNotebookModal) return;
+        // console.log('openEditNotebookModal', showEditNotebookModal)
+        // if (showEditNotebookModal) return;
         setShowEditNotebookModal(true)
     }
 
-    useEffect(() => {
-        if (!showEditNotebookModal) return
-
-        // const closeEditNotebookModal = (e) => {
-        //     setShowEditNotebookModal(false)
-        // }
-    }, [showEditNotebookModal])
+    // useEffect(() => {
+    //     if (!showEditNotebookModal) return
+    //     console.log(showEditNotebookModal, '-------------')
+    //     // const closeEditNotebookModal = (e) => {
+    //     //     setShowEditNotebookModal(false)
+    //     // }
+    // }, [showEditNotebookModal])
 
 
     return (
         <div>
-            <button className="edit-button" id='edit-notebook-button' onClick={openEditNotebookModal}>Rename Notebook</button>
-            {showEditNotebookModal && (
+            <button onClick={openEditNotebookModal}>Rename Notebook</button>
+            {/* {showEditNotebookModal && (
                 <Modal onClose={() => setShowEditNotebookModal(false)} >
                     <EditNotebookForm closeForm={closeEditNotebookModal} notebook={notebook} />
                 </Modal>
-            )}
+            )} */}
         </div>
     )
 }

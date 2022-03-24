@@ -1,0 +1,37 @@
+.ellipsis-dropdown {
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: .1px .1px 3px 1px rgba(0, 0, 0, 0.137);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 130px;
+    height: 50px;
+    position:absolute;
+
+}
+
+.ellipsis-dropdown li {
+    padding-bottom: 10px;
+}
+
+.ellipsis-dropdown li button {
+    color:black;
+    background-color: white;
+    border:none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    display:flex;
+    flex-direction: column;
+    height:20px;
+
+}
+
+.ellipsis-dropdown li button:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+/* .ellipsis-dropdown div:hover {
+    background-color: #f2f2f2;
+} */
