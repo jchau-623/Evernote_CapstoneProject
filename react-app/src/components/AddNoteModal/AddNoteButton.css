@@ -13,7 +13,7 @@
 
 .title-input {
     height:30px;
-    width:900px;
+    width:600px;
     border: none;
     outline: none;
     font-size: 26px;
@@ -24,7 +24,7 @@
     height:400px;
     outline: none;
     border: none;
-    width: 900px;
+    width: 600px;
     resize: none;
     color:#737373;
     padding-left:4px;

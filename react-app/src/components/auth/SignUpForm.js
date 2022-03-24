@@ -26,7 +26,6 @@ const SignUpForm = () => {
       setShowErrors(true)
     }
   };
-
   useEffect(() => {
     setShowErrors(false)
     const errors = [];
@@ -36,6 +35,7 @@ const SignUpForm = () => {
     if (!email.includes("@" && ".")) errors.push("This is not a valid email");
     if (username === email) errors.push('Username/email cannot be the same')
     if (password.length < 5) errors.push("Please provide a longer password");
+    if (password.length > 20) errors.push("Your password is too long");
     if (repeatPassword !== password) errors.push("Your passwords do not match");
     setErrors(errors);
   }, [username, password, email, repeatPassword]);

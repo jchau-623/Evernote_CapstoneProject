@@ -14,11 +14,17 @@ margin-left: 10px;
 
 .small-textarea-input {
 margin-left:10px;
-height:20px;
+height:40px;
 width:200px;
 margin-top: 5px;
 resize: none;
+overflow-y: scroll;
 }
+
+.small-textarea-input::-webkit-scrollbar {
+    display: none;
+}
+
 
 #small-add-note-submit {
     width:80px;

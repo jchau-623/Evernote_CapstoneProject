@@ -113,3 +113,7 @@
     color: #00a82d;
     margin-top:10px;
 }
+
+.note-container-description {
+    overflow-wrap: break-word;
+}

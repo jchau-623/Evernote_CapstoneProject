@@ -38,6 +38,8 @@
     color:#737373;
     font-size: 14px;
     padding-left:10px;
+    overflow-wrap: break-word;
+
 }
 
 #delete-and-edit-notebook {
