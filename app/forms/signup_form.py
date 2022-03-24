@@ -43,7 +43,7 @@ def password_length(form, field):
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists, username_length])
-    email = StringField('email', validators=[DataRequired(), user_exists, email_length, Email(message='This is not a valid email')])
-    password = StringField('password', validators=[DataRequired(), password_length])
-    repeat_password = StringField('repeat_password', validators=[DataRequired(), repeat_password])
+        'username', validators=[DataRequired('Please enter a username'), username_exists, username_length])
+    email = StringField('email', validators=[DataRequired('Please enter an email'), user_exists, email_length, Email(message='This is not a valid email')])
+    password = StringField('password', validators=[DataRequired('Please enter a password'), password_length])
+    repeat_password = StringField('repeat_password', validators=[DataRequired('Your passwords must match'), repeat_password])
