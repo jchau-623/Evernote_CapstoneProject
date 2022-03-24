@@ -32,7 +32,7 @@ export default function EditNoteButton({note}) {
         <button id='edit-note-button' onClick={openEditNoteModal}>Edit Note</button>
         {showEditNoteModal && (
             <Modal onClose={() => setShowEditNoteModal(false)} >
-                <EditNoteForm closeForm={closeEditNoteModal} note={note} />
+                <EditNoteForm closeEditNoteForm={closeEditNoteModal} note={note} />
             </Modal>
         )}
     </div>

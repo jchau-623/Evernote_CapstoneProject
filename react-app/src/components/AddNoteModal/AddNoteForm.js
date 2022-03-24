@@ -6,7 +6,7 @@ import './AddNoteButton.css'
 // import {Editor, EditorState} from 'draft-js';
 // import 'draft-js/dist/Draft.css';
 
-export default function AddNoteForm( closeAddNoteForm ) {
+export default function AddNoteForm( {closeAddNoteForm} ) {
 
     // function MyEditor() {
     //     const [editorState, setEditorState] = React.useState(
@@ -52,14 +52,15 @@ export default function AddNoteForm( closeAddNoteForm ) {
 
             };
             const newNote = await dispatch(addANotetoFirstNotebook(note));
-            // if (newNote) {
-            //     closeAddNoteForm()
-            // }
+            if (newNote) {
+                closeAddNoteForm()
+            }
 
         } else {
             setShowErrors(true)
         }
       };
+
 
 
     return (
