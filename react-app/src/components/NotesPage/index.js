@@ -77,7 +77,7 @@ export default function NotesPage({ note }) {
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                     </div> */}
                                     <div className="note-container-time">
-                                    {moment(note?.created_at).format('dddd')}
+                                    {moment(note?.created_at).fromNow()}
                                     </div>
                                     <div>
                                     </div>

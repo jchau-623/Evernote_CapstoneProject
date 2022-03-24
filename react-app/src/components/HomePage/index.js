@@ -33,7 +33,7 @@ export default function HomePage() {
                                 <div className="note-container-description">{note.description}
                                 </div>
                                 <div className="note-container-time">
-                                    {moment(note?.created_at).format('dddd')}
+                                    {moment(note?.created_at).fromNow()}
                                 </div>
                             </div>
                         )}
