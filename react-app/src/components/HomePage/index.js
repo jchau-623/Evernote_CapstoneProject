@@ -35,6 +35,7 @@ export default function HomePage() {
                                 </div>
                                 <div className="note-container-time">
                                     {moment(note?.created_at).fromNow()}
+                                    {/* {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} */}
                                 </div>
                             </div>
                         )}
