@@ -18,46 +18,54 @@ export default function HomePage() {
 
     return (
         <div>
-        <div className="full-page-container">
-            <div className='main-all-notes-container'>
-                <NavLink id='recent-notes-btn' to='/notes' exact={true} activeClassName='active'>
-                    <div className="notes-title" >
-                    Your notes <i id='greater-than' className="fa-solid fa-greater-than"></i>
-                    </div>
-                </NavLink>
-                <div className="containers-spacing">
-                    <div className="only-containers">
-                        {notes.map((note ,i) =>
-                            <div key={i} className='main-notes-container'>
-                                <div className="note-container-heading">{note.heading}
+            <div className="full-page-container">
+                <div className='main-all-notes-container'>
+                    <NavLink id='recent-notes-btn' to='/notes' exact={true} activeClassName='active'>
+                        <div className="notes-title" >
+                            Your notes <i id='greater-than' className="fa-solid fa-greater-than"></i>
+                        </div>
+                    </NavLink>
+                    <div className="containers-spacing">
+                        <div className="only-containers">
+                            {notes.map((note, i) =>
+                                <div key={i} className='main-notes-container'>
+                                    <div className="note-container-heading">{note.heading}
+                                    </div>
+                                    <div className="note-container-description">{note.description}
+                                    </div>
+                                    <div className="note-container-time">
+                                        {moment(note?.created_at).fromNow()}
+                                        {/* {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} */}
+                                    </div>
                                 </div>
-                                <div className="note-container-description">{note.description}
-                                </div>
-                                <div className="note-container-time">
-                                    {moment(note?.created_at).fromNow()}
-                                    {/* {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} */}
-                                </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="scratch-pad">
-                Scratch Pad
-                <textarea id='scratch-text'
-                    rows="19"
-                    placeholder="Start writing...">
+                <div className="scratch-pad">
+                    <div className="scratch-title">
+                    Scratch Pad
+                    {/* <div>
+                        <i
+                            id='triple-dot'
+                            className="fa-light fa-ellipsis"
+                        />
+                    </div> */}
+                    </div>
+                    <textarea id='scratch-text'
+                        rows="19"
+                        placeholder="Start writing...">
 
-                </textarea>
+                    </textarea>
+                </div>
+                <div>
+                </div>
             </div>
-            <div>
+            <div id="background">
+                <h1>Welcome to Everwrite!</h1>
+                <p>Capture your thoughts and ideas with ease using this Evernote clone.</p>
+                <p>Don't let your dreams be dreams.</p>
             </div>
-        </div>
-        <div id="background">
-            <h1>Welcome to Everwrite!</h1>
-            <p>Capture your thoughts and ideas with ease using this Evernote clone.</p>
-            <p>Don't let your dreams be dreams.</p>
-        </div>
         </div>
     )
 }
