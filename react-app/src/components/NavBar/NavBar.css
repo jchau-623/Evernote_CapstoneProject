@@ -10,10 +10,13 @@
 }
 .title-logo {
     color:#00a82d;
-    font-size: 20px;
-    margin-left:10px;
+    font-size: 30px;
+    margin-left:20px;
 }
 
+.title-logo:hover {
+    color:#a6a6a6;
+}
 
 .nav-bar-right-section {
     display: flex;

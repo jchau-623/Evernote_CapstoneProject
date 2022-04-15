@@ -10,7 +10,8 @@ export default function NavBar() {
 
       <NavLink to='/' exact={true} activeClassName='active'>
         <div className='title-logo' alt='logo'>
-          𝑬𝒗𝒆𝒓𝒘𝒓𝒊𝒕𝒆
+          {/* 𝑬𝒗𝒆𝒓𝒘𝒓𝒊𝒕𝒆 */}
+          <i class="fa-solid fa-elephant"></i>
         </div>
       </NavLink>
       <div className='nav-bar-right-section'>

@@ -1,0 +1,20 @@
+<!-- 8. Push your docker container to heroku from the root directory of your project.
+   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
+   This will build the Dockerfile and push the image to your heroku container registry.
+
+   ```bash
+   heroku container:push web -a {NAME_OF_HEROKU_APP}
+   ```
+
+9. Release your docker container to heroku
+
+      ```bash
+      heroku container:release web -a {NAME_OF_HEROKU_APP}
+      ```
+
+10. set up your database
+
+      ```bash
+      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
+      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
+      ``` -->
