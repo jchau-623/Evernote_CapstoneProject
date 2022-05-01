@@ -61,12 +61,14 @@ export default function NotesPage({ note }) {
                                 {notes.length} notes
                             </div>
                         </div>
+
                         <div id='flip-around'>
                             {notes.map((note, index) =>
                                 <div key={index} className='note-container' onClick={() => openEditNoteModal(index)} >
                                     {showEditNoteModal === index && (
                                         <Modal onClose={closeModal} >
                                             <EditNoteForm note={note} />
+
                                         </Modal>
                                     )}
                                     <div className='note-container-heading'>{note.heading}
@@ -80,6 +82,8 @@ export default function NotesPage({ note }) {
                                     <div className="note-container-time">
                                     {moment(note?.created_at).fromNow()}
                                     </div>
+                                    <div>{note.notebook.name}
+                                        </div>
                                     <div>
                                     </div>
                                     <DeleteNoteButton noteId={note.id} />

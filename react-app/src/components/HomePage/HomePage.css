@@ -118,8 +118,12 @@
     overflow-wrap: break-word;
 }
 
-/* .scratch-title {
+.scratch-title {
     display:flex;
     justify-content: space-between;
     margin-right:10px;
-} */
+}
+
+#triple-dot {
+    cursor: pointer;
+}

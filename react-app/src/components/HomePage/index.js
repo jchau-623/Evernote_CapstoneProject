@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { getNotes } from "../../store/notes";
+import { getNotebooks } from "../../store/notebooks";
 import './HomePage.css'
 import { timePassed } from "../NotesPage/utils";
 import moment from 'moment'
@@ -11,9 +12,12 @@ export default function HomePage() {
     const notes = useSelector(state => state.notes.list)
     notes.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
+
+    const notebooks = useSelector(state => state?.notebooks?.list)
+    const sessionUser = useSelector(state => state?.session?.user)
     useEffect(() => {
         dispatch(getNotes())
-
+        dispatch(getNotebooks())
     }, [dispatch])
 
     return (
@@ -24,7 +28,7 @@ export default function HomePage() {
                         <div className="notes-title" >
                             NOTES <i id='greater-than' className="fa-solid fa-greater-than"></i>
                             <div>
-                                
+
                             </div>
                         </div>
                     </NavLink>
@@ -48,12 +52,13 @@ export default function HomePage() {
                 <div className="scratch-pad">
                     <div className="scratch-title">
                     Scratch Pad
-                    {/* <div>
+                    <div>
+{/* 
                         <i
                             id='triple-dot'
                             className="fa-light fa-ellipsis"
-                        />
-                    </div> */}
+                        /> */}
+                    </div>
                     </div>
                     <textarea id='scratch-text'
                         rows="19"
