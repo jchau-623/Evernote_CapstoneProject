@@ -1,24 +1,44 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getNotes } from "../../store/notes";
 import { getNotebooks } from "../../store/notebooks";
 import './HomePage.css'
-import { timePassed } from "../NotesPage/utils";
+// import { timePassed } from "../NotesPage/utils";
 import moment from 'moment'
+import ScratchPadDropdown from "./ScratchPadDropdown";
+import { addANoteInNotebook } from "../../store/notes";
 
 export default function HomePage() {
     const dispatch = useDispatch()
     const notes = useSelector(state => state.notes.list)
     notes.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
+    const [description, setDescription] = useState('');
+
+    const [showDropdown, setShowDropdown] = useState(false)
 
     const notebooks = useSelector(state => state?.notebooks?.list)
     const sessionUser = useSelector(state => state?.session?.user)
+    console.log(notes)
+    // console.log(sessionUser)
     useEffect(() => {
         dispatch(getNotes())
         dispatch(getNotebooks())
     }, [dispatch])
+
+    const handleClickNotebook = (notebookId) => {
+        // TODO call API to create note for specific notebook
+        const payload = {
+            user_id: sessionUser.id,
+            heading: 'Untitled',
+            description: description,
+            notebook_id: notebookId,
+        }
+         dispatch(addANoteInNotebook(payload))
+         setDescription('')
+         setShowDropdown(false)
+    }
 
     return (
         <div>
@@ -51,19 +71,16 @@ export default function HomePage() {
                 </div>
                 <div className="scratch-pad">
                     <div className="scratch-title">
-                    Scratch Pad
-                    <div>
-{/* 
-                        <i
-                            id='triple-dot'
-                            className="fa-light fa-ellipsis"
-                        /> */}
-                    </div>
+                        Scratch Pad
+                        <div>
+                            <ScratchPadDropdown setShowDropdown={setShowDropdown} showDropdown={showDropdown} handleClickNotebook={handleClickNotebook} notebooks={notebooks} />
+                        </div>
                     </div>
                     <textarea id='scratch-text'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
                         rows="19"
                         placeholder="Start writing...">
-
                     </textarea>
                 </div>
                 <div>
