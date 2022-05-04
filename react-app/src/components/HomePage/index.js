@@ -20,7 +20,7 @@ export default function HomePage() {
 
     const notebooks = useSelector(state => state?.notebooks?.list)
     const sessionUser = useSelector(state => state?.session?.user)
-    console.log(notes)
+    // console.log(notes)
     // console.log(sessionUser)
     useEffect(() => {
         dispatch(getNotes())
@@ -67,11 +67,19 @@ export default function HomePage() {
                                 </div>
                             )}
                         </div>
+                    <div className="only-containers">
+                        <div className='add-note-main-notes-container'>
+                        <NavLink id='recent-notes-btn' to='/notes' exact={true} activeClassName='active'>
+                           <i className="fa-solid fa-memo-pad"></i>
+                           <p>Notes ({notes.length})</p>
+                           </NavLink>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <div className="scratch-pad">
                     <div className="scratch-title">
-                        Scratch Pad
+                        SCRATCH PAD
                         <div>
                             <ScratchPadDropdown setShowDropdown={setShowDropdown} showDropdown={showDropdown} handleClickNotebook={handleClickNotebook} notebooks={notebooks} />
                         </div>

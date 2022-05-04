@@ -29,6 +29,18 @@
     margin-right: 25px;
 }
 
+.fa-notebook {
+    padding-right:5px;
+}
+
+.fa-house {
+    padding-right:5px;
+}
+
+.fa-note {
+    padding-right:5px;
+}
+
 #nav-btns:hover {
     color:white;
 }

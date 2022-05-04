@@ -55,7 +55,7 @@ export default function NotesPage({ note }) {
                 <div>
                     <div className='large-square'>
                         <div id='notes-heading'>
-                            <div id='notes-and-icon'><i id='note-note-page' className="fa-solid fa-note"></i>Notes
+                            <div id='notes-and-icon'><i className="fa-solid fa-note"></i>Notes
                             </div>
                             <div className='notes-number'>
                                 {notes.length} notes

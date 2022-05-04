@@ -73,7 +73,7 @@ export default function NotebooksPage() {
                     <div className='notebooks'>
                         {notebooks?.map((notebook, index) =>
                             <div key={index} className='one-notebook'>
-                                <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'>{notebook.name}</div>
+                                <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'><i id='notebooks-icons' class="fa-solid fa-notebook"></i> {notebook.name}</div>
                                 {showOpenNotebookModal === index && (
                                     <Modal onClose={closeOpenNotebookModal}>
                                         <SingleNotebookPage

@@ -14,9 +14,10 @@
     border: 1px solid rgba(219,219,219);
     border-radius: 1px;
     width: 500px;
-    width: 500px;
     margin-top:40px;
     margin-bottom:40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .title {
