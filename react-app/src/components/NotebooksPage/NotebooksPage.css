@@ -7,10 +7,9 @@
 .notebooks-page-container {
     display:flex;
     flex-direction: row;
-    width:800px;
+    justify-content: center;
+    width:1000px;
     height:602px;
-    padding-left:20px;
-    padding-right:20px;
     padding-top:30px;
 }
 
@@ -25,11 +24,12 @@
 .notebooks-header {
     display: flex;
     flex-direction: column;
+    width:1000px;
 }
 
 #number-notebooks {
     display:flex;
-    width:800px;
+    width:1000px;
     justify-content: space-between;
     border-bottom:2px solid #5b6b70;
     padding-bottom:7px;
@@ -76,7 +76,7 @@
 }
 
 #notebook-name {
-    width:150px;
+    width: 250px;
 }
 
 #created-by-username{
@@ -98,7 +98,7 @@
 }
 
 .created-by {
-    padding-left:55px;
+    padding-left:150px;
 }
 
 /* #edit-button {
