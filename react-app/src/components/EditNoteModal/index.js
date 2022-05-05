@@ -1,11 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import EditNoteForm from './EditNoteForm';
 import { Modal } from '../../context/Modal';
 
 export default function EditNoteButton({note}) {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [showEditNoteModal, setShowEditNoteModal] = useState(false)
     // console.log(note,'this is note')
 

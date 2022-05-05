@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getNotes } from '../../store/notes';
 import { getNotebooks } from '../../store/notebooks';
 import './SingleNotebook.css'
 import AddANoteButton from './AddANote';
 import DeleteNoteButton from '../DeleteNoteButton';
-import EditNoteButton from './EditNoteButton'
+// import EditNoteButton from './EditNoteButton'
 
 
 export default function SingleNotebookPage({ notebookId, notebookName }) {
@@ -13,7 +13,7 @@ export default function SingleNotebookPage({ notebookId, notebookName }) {
     // console.log(notebookId, 'this is notebookId')
 
     const notes = useSelector(state => state.notes.list)
-    const notebooks = useSelector(state => state.notebooks.list)
+    // const notebooks = useSelector(state => state.notebooks.list)
     // const sessionUser = useSelector(state => state?.session?.user)
     // console.log(notebooks, 'this is notebook')
 
