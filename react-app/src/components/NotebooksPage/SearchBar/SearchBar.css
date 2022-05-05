@@ -1,0 +1,20 @@
+.fa-xmark {
+    position: absolute;
+    right:10px;
+    top:9px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.fa-xmark:hover {
+    color:#5b6b70;
+}
+
+.searchbar-container {
+    display: inline-block;
+    position: relative;
+}
+
+.fa-magnifying-glass {
+    margin-left: 10px;
+}

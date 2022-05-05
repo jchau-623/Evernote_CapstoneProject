@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getNotebooks } from '../../store/notebooks';
 import AddNotebookButton from '../AddNotebookModal';
-import DeleteNotebookButton from '../DeleteNotebookButton';
-import EditNotebookButton from '../EditNotebookModal';
+// import DeleteNotebookButton from '../DeleteNotebookButton';
+// import EditNotebookButton from '../EditNotebookModal';
 import './NotebooksPage.css'
 import { Modal } from '../../context/Modal';
 import SingleNotebookPage from '../SingleNotebook';
 import EllipsisDropdown from './EllipsisDropdown';
 import EditNotebookForm from '../EditNotebookModal/EditNotebookForm';
+import SearchBar from './SearchBar';
 
 export default function NotebooksPage() {
 
@@ -22,6 +23,12 @@ export default function NotebooksPage() {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const [showEditNotebookModal, setShowEditNotebookModal] = useState(false)
+
+    const [filteredNotebooks, setFilteredNotebooks] = useState([])
+
+    useEffect(() => {
+        setFilteredNotebooks(notebooks)
+    }, [notebooks])
 
     const closeEditNotebookModal = (e) => {
         setShowEditNotebookModal(false)
@@ -56,22 +63,28 @@ export default function NotebooksPage() {
                 <div className='notebooks-header'>
                     <div id='notebooks-title'>
                         Notebooks
+                        <SearchBar notebooks={notebooks} setFilteredNotebooks={setFilteredNotebooks} filteredNotebooks={filteredNotebooks} />
+                    </div>
+                    <div className='add-notebook-number-notebooks'>
+                        <div>
+                            {notebooks.length} notebooks
+                        </div>
                         <div id='new-notebook'>
-                            <i id='add-btn' className="fa-solid fa-plus"></i><AddNotebookButton />
+                            <AddNotebookButton />
                         </div>
                     </div>
                     <div id='number-notebooks'>
-                        {notebooks.length} notebooks
-                        <div>
-                            Created by
+                        TITLE
+                        <div className='created-by'>
+                            CREATED BY
                         </div>
                         <div>
-                            Actions
+                            ACTIONS
                         </div>
 
                     </div>
                     <div className='notebooks'>
-                        {notebooks?.map((notebook, index) =>
+                        {filteredNotebooks?.map((notebook, index) =>
                             <div key={index} className='one-notebook'>
                                 <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'><i id='notebooks-icons' class="fa-solid fa-notebook"></i> {notebook.name}</div>
                                 {showOpenNotebookModal === index && (

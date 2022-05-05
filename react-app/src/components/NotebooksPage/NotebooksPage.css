@@ -33,16 +33,18 @@
     justify-content: space-between;
     border-bottom:2px solid #5b6b70;
     padding-bottom:7px;
+    font-size:13px;
 }
 
 #new-notebook {
     display:flex;
-    align-items: flex-end;
+    justify-content: flex-end;
     color:#00a82d;
     background-color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
+
 }
 
 #new-notebook:hover {
@@ -88,6 +90,15 @@
 #notebooks-icons {
     color:#5b6b70;
     padding-right: 5px;
+}
+
+.add-notebook-number-notebooks {
+    display:flex;
+    justify-content: space-between;
+}
+
+.created-by {
+    padding-left:55px;
 }
 
 /* #edit-button {

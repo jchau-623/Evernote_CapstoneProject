@@ -1,81 +1,90 @@
 #new-notebook-container {
     width: 450px;
-    height:290px;
+    height: 290px;
     display: flex;
     flex-direction: column;
     border-radius: 7px;
-    border:1px solid #00a82d;
+    border: 1px solid #00a82d;
 }
 
 #new-notebook-heading {
     font-weight: bold;
     font-size: 18px;
-    padding-top:20px;
-    padding-left:20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 #new-notebook-subheading {
-    color:#737373;
+    color: #737373;
     font-size: 14px;
-    padding-top:20px;
-    padding-left:20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 #name-new-notebook {
-    padding-top:10px;
+    padding-top: 10px;
     padding-bottom: 5px;
-    padding-top:20px;
-    padding-left:20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 .name-input {
-    height:20px;
+    height: 20px;
     border-radius: 4px;
-    width:400px;
+    width: 400px;
     font-size: 16px;
-    border:1px solid #0081c2;
+    border: 1px solid #0081c2;
     margin-bottom: 20px;
 }
 
 #input-label {
-    padding-top:20px;
-    padding-left:20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 #create-notebook-btn {
-    width:100px;
-    display:flex;
+    width: 100px;
+    display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top:20px;
-    margin-left:20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #new-notebook-form {
-    border-bottom:1px solid #737373;
+    border-bottom: 1px solid #737373;
 }
 
 #edit-notebook-submit {
-width:100px;
-display:flex;
-justify-content: center;
-align-items: flex-end;
-margin-top:20px;
-margin-left:20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #cancel-button {
-    width:100px;
-    display:flex;
+    width: 100px;
+    display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top:20px;
-    margin-left:20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .err-handling {
-        display: flex;
-        flex-direction: column;
-        color:#cc4539;
-        padding-left: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    color: #cc4539;
+    padding-left: 20px;
+}
+
+#add-btn {
+    padding-right: 5px;
+    padding-top: 3.5px;
+}
+
+#new-notebook {
+    margin-bottom: 10px;
+}

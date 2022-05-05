@@ -25,7 +25,7 @@ export default function AddNotebookButton() {
 
     return (
         <div>
-            <button id='new-notebook' onClick={openAddNotebookModal}>New Notebook</button>
+            <button id='new-notebook' onClick={openAddNotebookModal}><i id='add-btn' className="fa-solid fa-plus"></i> New Notebook</button>
             {showAddNotebookModal && (
                     <Modal onClose={() => setShowAddNotebookModal(false)}>
                     <AddNotebookForm closeAddForm={closeAddNotebookModal}/>
