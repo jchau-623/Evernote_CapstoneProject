@@ -62,8 +62,8 @@ export default function EditNotebookForm({ notebook, closeForm }) {
                         })}
                 </ul>
                 <div className="edit-and-delete-button">
-                    <button className="buttons" id='edit-notebook-submit' onClick={handleEdit}>Continue</button>
                     <button className="buttons" id='cancel-button' onClick={closeForm}>Cancel</button>
+                    <button className="buttons" id='edit-notebook-submit' onClick={handleEdit}><span>Continue</span></button>
                 </div>
             </form>
         </div>

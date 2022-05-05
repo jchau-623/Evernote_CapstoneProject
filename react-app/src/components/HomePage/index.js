@@ -47,9 +47,6 @@ export default function HomePage() {
                     <NavLink id='recent-notes-btn' to='/notes' exact={true} activeClassName='active'>
                         <div className="notes-title" >
                             NOTES <i id='greater-than' className="fa-solid fa-greater-than"></i>
-                            <div>
-
-                            </div>
                         </div>
                     </NavLink>
                     <div className="containers-spacing">
@@ -81,6 +78,7 @@ export default function HomePage() {
                     <div className="scratch-title">
                         SCRATCH PAD
                         <div>
+                            
                             <ScratchPadDropdown setShowDropdown={setShowDropdown} showDropdown={showDropdown} handleClickNotebook={handleClickNotebook} notebooks={notebooks} />
                         </div>
                     </div>

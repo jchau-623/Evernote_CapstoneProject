@@ -15,16 +15,16 @@
 } */
 
 .delete-button {
-    height:25px;
-    width:50px;
-    background-color:#00a82d;
-    color:#ffffff;
-    border-radius: 3px;
+    height:30px;
+    width:60px;
+    background-color:#ffffff;
+    color:#737373;
+    border-radius: 7px;
     font-size: 12px;
     text-align: center;
     cursor: pointer;
 }
 
 .delete-button:hover {
-    background-color: #007620;
+    background-color: #f2f2f2;
 }

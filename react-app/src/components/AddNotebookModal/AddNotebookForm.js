@@ -60,7 +60,9 @@ export default function AddNotebookForm({ closeAddForm }) {
                         })}
                 </ul>
             </form>
+            <div className='create-notebook-container'>
             <button className='buttons' id='create-notebook-btn' onClick={handleSubmit}>Create</button>
+            </div>
         </div>
     )
 }

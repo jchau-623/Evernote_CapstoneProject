@@ -71,14 +71,14 @@
 
 .notes-title {
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 20px;
     margin-left: 15px;
 }
 
 .notes-title:hover {
     background-color: #f2f2f2;
-    width: 140px;
+    width: 90px;
 }
 
 #greater-than {
@@ -110,7 +110,7 @@ recent-notes-btn:visited {
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 20px;
+    font-size: 16px;
     height: 382px;
 }
 
@@ -139,6 +139,10 @@ recent-notes-btn:visited {
 
 .note-container-description {
     overflow-wrap: break-word;
+}
+
+.note-container-heading {
+font-weight: bold;
 }
 
 .scratch-title {

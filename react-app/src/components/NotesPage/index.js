@@ -72,6 +72,8 @@ export default function NotesPage({ note }) {
 
                                         </Modal>
                                     )}
+                                    <div className='notes-page-notebook-name'><i className="fa-solid fa-notebook"></i>{note.notebook.name}
+                                    </div>
                                     <div className='note-container-heading'>{note.heading}
                                     </div>
                                     <div className='note-container-description'>{note.description}
@@ -81,10 +83,8 @@ export default function NotesPage({ note }) {
                                         {timePassed(Date.parse(new Date().toLocaleString()) - Date.parse(note?.created_at))} ago
                                     </div> */}
                                     <div className="note-container-time">
-                                    {moment(note?.created_at).fromNow()}
+                                        {moment(note?.created_at).fromNow()}
                                     </div>
-                                    <div>{note.notebook.name}
-                                        </div>
                                     <div>
                                     </div>
                                     <DeleteNoteButton noteId={note.id} />

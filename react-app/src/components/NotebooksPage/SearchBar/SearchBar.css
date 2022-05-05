@@ -15,6 +15,10 @@
     position: relative;
 }
 
+/* .searchbar-container:focus {
+    border-color:rgb(42, 99, 221);
+} */
+
 .fa-magnifying-glass {
     margin-left: 10px;
 }

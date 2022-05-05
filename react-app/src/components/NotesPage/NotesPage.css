@@ -97,3 +97,10 @@
     object-fit: cover;
 }
 
+/* .notes-page-notebook-name {
+    font-weight: bold;
+} */
+
+.fa-notebook {
+    color:#a6a6a6;
+}

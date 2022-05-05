@@ -10,9 +10,11 @@
 
 .buttons {
     height:30px;
-    width:200px;
-    background-color:#00a82d;
-    color:#ffffff;
+    width:150px;
+    /* background-color:#00a82d;
+    color:#ffffff; */
+    background-color:#ffffff;
+    color:#737373;
     border-radius: 7px;
     font-size: 16px;
     text-align: center;
@@ -20,7 +22,7 @@
 }
 
 .buttons:hover {
-    background-color: #007620;
+    background-color: #f2f2f2;
 }
 
 li {

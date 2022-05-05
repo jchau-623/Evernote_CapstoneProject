@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: column;
     border-radius: 7px;
-    border: 1px solid #00a82d;
+    /* border: 1px solid #00a82d; */
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 2px 15px 0px;
 }
 
 #new-notebook-heading {
@@ -43,12 +44,15 @@
 }
 
 #create-notebook-btn {
-    width: 100px;
+    width: 80px;
+    height:35px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items:center;
     margin-top: 20px;
     margin-left: 20px;
+    font-size: 16px;
+
 }
 
 #new-notebook-form {
@@ -56,21 +60,25 @@
 }
 
 #edit-notebook-submit {
-    width: 100px;
+    width: 85px;
+    height:35px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-right:20px;
+    border-radius: 4px;
 }
 
 #cancel-button {
-    width: 100px;
+    width: 85px;
+    height:35px;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-right:20px;
+    border-radius: 4px;
 }
 
 .err-handling {
@@ -87,4 +95,15 @@
 
 #new-notebook {
     margin-bottom: 10px;
+}
+
+.edit-and-delete-button {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.create-notebook-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right:20px;
 }

@@ -120,7 +120,7 @@ const SignUpForm = () => {
               ></input>
             </div>
           </div>
-          <button id='signup-btn' className='buttons' type='submit'>Sign Up</button>
+          <button id='signup-btn' type='submit'>Sign Up</button>
         </form>
         <div id='have-account'>Already have an account?</div>
         <NavLink to='/login' id='login-link'>Sign in</NavLink>

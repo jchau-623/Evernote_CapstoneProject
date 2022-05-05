@@ -16,10 +16,10 @@ export default function ScratchPadDropdown({ setShowDropdown,showDropdown, noteb
                     onClick={handleClick}
                     id='triple-dot'
                     className="fa-light fa-ellipsis"
-                />
+                    />
                 <div className='scratchpad-notebooks-div'>
                     {showDropdown && notebooks.map((notebook, index) => (
-                        <p key={index} onClick={() => handleClickNotebook(notebook.id)} className='scratchpad-notebooks'>{notebook.name}</p>
+                        <p key={index} onClick={() => handleClickNotebook(notebook.id)} className='scratchpad-notebooks'>Add to {notebook.name}</p>
                     ))}
                 </div>
             </div>
