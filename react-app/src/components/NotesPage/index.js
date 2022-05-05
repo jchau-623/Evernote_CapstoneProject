@@ -35,6 +35,7 @@ export default function NotesPage({ note }) {
     useEffect(() => {
         if (!showEditNoteModal) return
 
+        // eslint-disable-next-line
         const closeEditNoteModal = (e) => {
             setShowEditNoteModal(null)
         }

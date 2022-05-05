@@ -10,6 +10,7 @@ export default function EditNoteButton({note}) {
     // console.log(note,'this is note')
 
 
+    // eslint-disable-next-line
     const closeEditNoteModal = (e) => {
         setShowEditNoteModal(false)
     }
@@ -22,6 +23,7 @@ export default function EditNoteButton({note}) {
     useEffect(() => {
         if (!showEditNoteModal) return
 
+        // eslint-disable-next-line
         const closeEditNoteModal = (e) => {
             setShowEditNoteModal(false)
         }

@@ -34,6 +34,7 @@ export default function AddANoteButton({ notebookId }) {
                 description,
                 notebook_id: notebookId
             };
+            // eslint-disable-next-line
             const newNote = await dispatch(addANoteInNotebook(note));
             setHeading('')
             setDescription('')

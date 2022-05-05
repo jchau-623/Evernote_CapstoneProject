@@ -34,6 +34,7 @@ export default function NotebooksPage() {
         setShowEditNotebookModal(false)
     }
 
+    // eslint-disable-next-line
     const openDropdown = () => {
         if (showDropdown) return;
         setShowDropdown(true);

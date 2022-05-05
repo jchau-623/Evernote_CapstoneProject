@@ -17,7 +17,7 @@ export default function AddNotebookButton() {
 
     useEffect(() => {
         if (!showAddNotebookModal) return
-
+        // eslint-disable-next-line
         const closeAddNotebookModal = (e) => {
             setShowAddNotebookModal(false)
         }
@@ -27,8 +27,8 @@ export default function AddNotebookButton() {
         <div>
             <button id='new-notebook' onClick={openAddNotebookModal}><i id='add-btn' className="fa-solid fa-plus"></i> New Notebook</button>
             {showAddNotebookModal && (
-                    <Modal onClose={() => setShowAddNotebookModal(false)}>
-                    <AddNotebookForm closeAddForm={closeAddNotebookModal}/>
+                <Modal onClose={() => setShowAddNotebookModal(false)}>
+                    <AddNotebookForm closeAddForm={closeAddNotebookModal} />
                 </Modal>
             )}
         </div>

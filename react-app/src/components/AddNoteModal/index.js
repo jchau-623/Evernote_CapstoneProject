@@ -20,7 +20,7 @@ export default function AddNoteButton() {
 
     useEffect(() => {
         if (!showAddNoteModal) return;
-
+        // eslint-disable-next-line
         const closeAddNoteModal = (e) => {
             setShowAddNoteModal(false)
         }

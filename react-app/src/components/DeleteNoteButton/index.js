@@ -15,6 +15,7 @@ export default function DeleteNoteButton(noteId) {
         const payload = {
             note_id: noteId
         }
+        // eslint-disable-next-line
         const deletedNote = await dispatch(deleteANote(payload))
     }
 

@@ -36,6 +36,7 @@ export default function EditNoteForm({ note, closeEditNoteForm }) {
                 // notebook_id: notebookId
             }
 
+            // eslint-disable-next-line
             const newNote = await dispatch(updateNote(payload))
             // if (newNote) {
             //     closeEditNoteForm()
