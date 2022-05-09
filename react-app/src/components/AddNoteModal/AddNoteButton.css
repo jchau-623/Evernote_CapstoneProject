@@ -1,6 +1,7 @@
 #add-note-button {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .add-form {
@@ -13,7 +14,7 @@
 
 .title-input {
     height:30px;
-    width:600px;
+    width:900px;
     border: none;
     outline: none;
     font-size: 26px;
@@ -24,7 +25,7 @@
     height:400px;
     outline: none;
     border: none;
-    width: 600px;
+    width: 900px;
     resize: none;
     color:#737373;
     padding-left:4px;
@@ -34,6 +35,7 @@
     display:flex;
     justify-content: center;
     width:80px;
+    align-items: center;
 }
 
 .err-handling {

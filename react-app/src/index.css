@@ -10,16 +10,20 @@
 
 .buttons {
     height:30px;
-    width:150px;
+    width:110px;
     background-color:#00a82d;
     color:#ffffff;
     /* background-color:#ffffff; */
     /* color:#737373; */
-    border-radius: 7px;
+    border-radius: 4px;
     font-size: 16px;
+    letter-spacing: normal;
+    line-height: 13px;
     text-align: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: none;
+    border:1px solid #00a82d;
 }
 
 .buttons:hover {

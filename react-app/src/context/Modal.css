@@ -16,11 +16,11 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(42,51,60,0.4);
 }
 
 #modal-background.layer {
-  background-color: rgba(0, 0, 0, 0.849);
+  background-color:rgba(42,51,60,0.4);
 }
 
 

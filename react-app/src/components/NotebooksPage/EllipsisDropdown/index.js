@@ -6,7 +6,7 @@ import DeleteNotebookButton from '../../DeleteNotebookButton';
 // import { deleteANote } from '../../../store/notes';
 import './EllipsisDropdown.css'
 
-export default function EllipsisDropdown({notebook, notebookId, setShowEditNotebookModal}) {
+export default function EllipsisDropdown({notebook, setShowEditNotebookModal, setNotebookToEdit}) {
 
     // const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ export default function EllipsisDropdown({notebook, notebookId, setShowEditNoteb
                 <DeleteNotebookButton notebookId={notebook.id} />
             </li>
             <li >
-                <EditNotebookButton notebook={notebook} setShowEditNotebookModal={setShowEditNotebookModal}/>
+                <EditNotebookButton setNotebookToEdit={setNotebookToEdit}  notebook={notebook} setShowEditNotebookModal={setShowEditNotebookModal}/>
             </li>
         </ul>
     )

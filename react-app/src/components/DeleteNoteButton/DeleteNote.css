@@ -17,14 +17,19 @@
 .delete-button {
     height:30px;
     width:60px;
-    /* background-color:#ffffff; */
     background-color:#00a82d;
     color:#ffffff;
+    /* background-color:#ffffff; */
     /* color:#737373; */
-    border-radius: 7px;
+    border-radius: 4px;
+    letter-spacing: normal;
+    line-height: 13px;
     font-size: 12px;
     text-align: center;
+    justify-content: center;
     cursor: pointer;
+    box-shadow: none;
+    border:1px solid #00a82d;
 }
 
 .delete-button:hover {

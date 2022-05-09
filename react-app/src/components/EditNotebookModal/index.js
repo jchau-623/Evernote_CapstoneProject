@@ -6,7 +6,7 @@ import React from 'react';
 import './EditNotebook.css'
 
 
-export default function EditNotebookButton({ notebook, setShowEditNotebookModal }) {
+export default function EditNotebookButton({ notebook, setShowEditNotebookModal, setNotebookToEdit }) {
     // const dispatch = useDispatch();
     // const [showEditNotebookModal, setShowEditNotebookModal] = useState(false)
 
@@ -14,10 +14,13 @@ export default function EditNotebookButton({ notebook, setShowEditNotebookModal 
     //     setShowEditNotebookModal(false)
     // }
 
+
+
     const openEditNotebookModal = () => {
         // console.log('openEditNotebookModal', showEditNotebookModal)
         // if (showEditNotebookModal) return;
         setShowEditNotebookModal(true)
+        setNotebookToEdit(notebook)
     }
 
     // useEffect(() => {

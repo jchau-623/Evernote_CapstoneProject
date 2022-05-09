@@ -21,6 +21,7 @@ export default function NotebooksPage() {
     const closeOpenNotebookModal = () => setShowOpenNotebookModal(false)
 
     const [showDropdown, setShowDropdown] = useState(false);
+    const [notebookToEdit, setNotebookToEdit] = useState(null)
 
     const [showEditNotebookModal, setShowEditNotebookModal] = useState(false)
 
@@ -30,7 +31,7 @@ export default function NotebooksPage() {
         setFilteredNotebooks(notebooks)
     }, [notebooks])
 
-    const closeEditNotebookModal = (e) => {
+    const closeEditNotebookModal = () => {
         setShowEditNotebookModal(false)
     }
 
@@ -106,17 +107,14 @@ export default function NotebooksPage() {
                                             <DeleteNotebookButton notebookId={notebook.id} />
                                         </div> */}
                                         <div>
+
                                             <i
                                                 id='triple-dot'
                                                 className="fa-light fa-ellipsis"
                                                 onClick={() => setShowDropdown(index)}
                                             />
-                                            {showDropdown === index && <EllipsisDropdown setShowEditNotebookModal={setShowEditNotebookModal} notebook={notebook} notebookId={notebook.id} />}
-                                            {showEditNotebookModal && (
-                                                <Modal onClose={() => setShowEditNotebookModal(false)} >
-                                                    <EditNotebookForm closeForm={closeEditNotebookModal} notebook={notebook} />
-                                                </Modal>
-                                            )}
+                                            {showDropdown === index && <EllipsisDropdown setNotebookToEdit={setNotebookToEdit} setShowEditNotebookModal={setShowEditNotebookModal} notebook={notebook} notebookId={notebook.id} />}
+
                                         </div>
                                     </>
                                     : null
@@ -127,6 +125,11 @@ export default function NotebooksPage() {
 
                 </div>
             </div>
+            {showEditNotebookModal && (
+                <Modal onClose={() => setShowEditNotebookModal(false)} >
+                    <EditNotebookForm notebook={notebookToEdit} closeForm={closeEditNotebookModal} />
+                </Modal>
+            )}
         </div>
     )
 }
