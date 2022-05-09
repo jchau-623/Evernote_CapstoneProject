@@ -6,30 +6,48 @@ import DeleteNoteButton from '../DeleteNoteButton'
 // import { timePassed } from './utils'
 import AddNoteButton from '../AddNoteModal'
 // import EditNoteButton from '../EditNoteModal'
-import { Modal } from '../../context/Modal'
 import EditNoteForm from '../EditNoteModal/EditNoteForm'
 // import NotebooksPage from '../NotebooksPage'
 import { getNotebooks } from '../../store/notebooks'
 import moment from 'moment'
+import AddNoteForm from '../AddNoteModal/AddNoteForm'
 
 export default function NotesPage({ note }) {
 
 
 
-    const [showEditNoteModal, setShowEditNoteModal] = useState(null)
+    const [showEditNoteModal, setShowEditNoteModal] = useState(false)
 
     useEffect(() => {
 
     }, [showEditNoteModal])
 
-    const closeModal = (e) => {
-        e.stopPropagation()
-        setShowEditNoteModal(false)
+    // const closeModal = (e) => {
+    //     e.stopPropagation()
+    //     setShowEditNoteModal(false)
+    // }
+
+    // const openEditNoteModal = (index) => {
+    //     if (showEditNoteModal) return;
+    //     setShowEditNoteModal(index)
+    // }
+
+    const [showAddNoteForm, setShowAddNoteForm] = useState(false)
+    const [showEditNoteForm, setShowEditNoteForm] = useState(false)
+    const [noteIdToEdit, setNoteIdToEdit] = useState(null)
+
+    const toggleEditNoteForm = (noteIdx) => {
+        setNoteIdToEdit(noteIdx)
+        setShowEditNoteForm(!showEditNoteForm)
+        setShowAddNoteForm(false)
+        // console.log('------------ this is edit note form button')
     }
 
-    const openEditNoteModal = (index) => {
-        if (showEditNoteModal) return;
-        setShowEditNoteModal(index)
+
+
+    const toggleShowNoteForm = () => {
+        setShowAddNoteForm(!showAddNoteForm)
+        setShowEditNoteForm(false)
     }
 
     useEffect(() => {
@@ -65,13 +83,7 @@ export default function NotesPage({ note }) {
 
                         <div id='flip-around'>
                             {notes.map((note, index) =>
-                                <div key={index} className='note-container' onClick={() => openEditNoteModal(index)} >
-                                    {showEditNoteModal === index && (
-                                        <Modal onClose={closeModal} >
-                                            <EditNoteForm note={note} />
-
-                                        </Modal>
-                                    )}
+                                <div key={index} className='note-container' onClick={() => toggleEditNoteForm(index)} >
                                     <div className='notes-page-notebook-name'><i className="fa-solid fa-notebook"></i>{note.notebook.name}
                                     </div>
                                     <div className='note-container-heading'>{note.heading}
@@ -100,14 +112,22 @@ export default function NotesPage({ note }) {
                     </div>
                 </div>
             </div>
+            <div>
             <div id='edit-note-heading'>
                 <div id='add-note-btn'>
-                    <AddNoteButton />
+                    <AddNoteButton toggleShowNoteForm={toggleShowNoteForm} />
                 </div>
                 <div>
                 </div>
             </div>
-            <div>
+            <div className='add-note-form-container'>
+                {showAddNoteForm && (
+                    <AddNoteForm toggleShowNoteForm={() => setShowAddNoteForm(false)} />
+                )}
+                {showEditNoteForm && (
+                    <EditNoteForm note={notes[noteIdToEdit]} toggleEditNoteForm={toggleEditNoteForm} />
+                )}
+            </div>
             </div>
         </div>
     )

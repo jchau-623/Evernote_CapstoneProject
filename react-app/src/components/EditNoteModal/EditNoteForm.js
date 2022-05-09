@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateNote } from "../../store/notes";
 
-export default function EditNoteForm({ note, closeEditNoteForm }) {
+export default function EditNoteForm({ note }) {
     const dispatch = useDispatch();
     const [heading, setHeading] = useState(note.heading)
     const [description, setDescription] = useState(note.description)

@@ -6,6 +6,8 @@
    heroku container:push web -a {NAME_OF_HEROKU_APP}
    ```
 
+heroku container:login if you run into authentication required error
+
 9. Release your docker container to heroku
 
       ```bash
