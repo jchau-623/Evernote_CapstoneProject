@@ -29,6 +29,7 @@
 .buttons:hover {
     /* background-color: #f2f2f2; */
     background-color: #008f26;
+    border:1px solid #008f26;
 }
 li {
     list-style-type: none;
