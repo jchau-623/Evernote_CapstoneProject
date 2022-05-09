@@ -1,7 +1,7 @@
 .modal-container {
     display:flex;
     flex-direction: column;
-    border:1px solid #00a82d;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 2px 15px 0px;
     width: 400px;
     height: 450px;
     border-radius: 7px;
