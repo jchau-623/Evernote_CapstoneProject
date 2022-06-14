@@ -6,18 +6,7 @@ import './AddNoteButton.css'
 // import {Editor, EditorState} from 'draft-js';
 // import 'draft-js/dist/Draft.css';
 
-export default function AddNoteForm( {toggleAddNoteForm} ) {
-
-    // function MyEditor() {
-    //     const [editorState, setEditorState] = React.useState(
-    //       () => EditorState.createEmpty(),
-    //     );
-
-    //     return <Editor editorState={editorState} onChange={setEditorState} />;
-    //   }
-
-    //   ReactDOM.render(<MyEditor />, document.getElementById('container'));
-
+export default function AddNoteForm( {toggleShowNoteForm} ) {
 
     const dispatch = useDispatch();
     const [heading, setHeading] = useState('')
@@ -53,7 +42,7 @@ export default function AddNoteForm( {toggleAddNoteForm} ) {
             };
             const newNote = await dispatch(addANotetoFirstNotebook(note));
             if (newNote) {
-                toggleAddNoteForm()
+                toggleShowNoteForm()
             }
 
         } else {

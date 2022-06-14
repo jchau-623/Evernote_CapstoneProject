@@ -102,11 +102,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case LOAD_NOTEBOOKS:
-            const allList = {};
             // console.log(action.notebooks, '----------')
-            action.notebooks.forEach(notebook => {
-                allList[notebook.id] = notebook
-            })
             return {
                 ...state,
                 list: action.notebooks
