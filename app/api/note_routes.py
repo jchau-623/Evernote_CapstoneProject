@@ -54,8 +54,6 @@ def add_note():
     data = request.json
     form = NoteForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(data, '---------')
-    print(len(data.keys()), 'this is data length')
     if form.validate_on_submit():
         if (len(data.keys()) > 3):
             note = Note(
