@@ -121,4 +121,5 @@
 
 #signup-btn:hover {
     background-color:#007620;
+    cursor: pointer;
 }
