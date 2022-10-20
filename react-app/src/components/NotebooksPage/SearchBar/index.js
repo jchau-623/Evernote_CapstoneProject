@@ -37,6 +37,7 @@ export default function SearchBar({ notebooks, setFilteredNotebooks, filteredNot
                 <i class="fa-solid fa-xmark" onClick={handleClear}></i>
             </div>
             {/* <i class="fa-solid fa-magnifying-glass"></i> */}
+            
         </div>
     );
 }
