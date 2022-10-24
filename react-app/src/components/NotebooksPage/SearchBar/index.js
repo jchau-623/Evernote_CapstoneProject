@@ -24,7 +24,6 @@ export default function SearchBar({ notebooks, setFilteredNotebooks, filteredNot
         }
     };
 
-// 
     return (
         <div>
             <div className="searchbar-container">
