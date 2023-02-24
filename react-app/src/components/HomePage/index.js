@@ -67,7 +67,7 @@ export default function HomePage() {
                     <div className="only-containers">
                         <div className='add-note-main-notes-container'>
                         <NavLink id='recent-notes-btn' to='/notes' exact={true} activeClassName='active'>
-                           <i className="fa-solid fa-memo-pad"></i>
+                           <i className="fa-regular fa-note-sticky" id="container-note"></i>
                            <p>Notes ({notes.length})</p>
                            </NavLink>
                         </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
                     <div className="scratch-title">
                         SCRATCH PAD
                         <div>
-                            
+
                             <ScratchPadDropdown setShowDropdown={setShowDropdown} showDropdown={showDropdown} handleClickNotebook={handleClickNotebook} notebooks={notebooks} />
                         </div>
                     </div>

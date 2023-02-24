@@ -74,7 +74,7 @@ export default function NotesPage({ note }) {
                 <div>
                     <div className='large-square'>
                         <div id='notes-heading'>
-                            <div id='notes-and-icon'><i className="fa-solid fa-note"></i>Notes
+                            <div id='notes-and-icon'><i className="fa-solid fa-note-sticky"></i>Notes
                             </div>
                             <div className='notes-number'>
                                 {notes.length} notes
@@ -84,7 +84,7 @@ export default function NotesPage({ note }) {
                         <div id='flip-around'>
                             {notes.map((note, index) =>
                                 <div key={index} className='note-container' onClick={() => toggleEditNoteForm(index)} >
-                                    <div className='notes-page-notebook-name'><i className="fa-solid fa-notebook"></i>{note.notebook.name}
+                                    <div className='notes-page-notebook-name'><i className="fa-solid fa-book"></i>{note.notebook.name}
                                     </div>
                                     <div className='note-container-heading'>{note.heading}
                                     </div>

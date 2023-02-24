@@ -22,7 +22,7 @@ export default function ScratchPadDropdown({ setShowDropdown, showDropdown, note
                 <i
                     onClick={setShowDropdown}
                     id='triple-dot'
-                    className="fa-light fa-ellipsis"
+                    className="fa-solid fa-ellipsis"
                 />
                 <div className='scratchpad-notebooks-div'>
                     {showDropdown && notebooks.map((notebook, index) => (

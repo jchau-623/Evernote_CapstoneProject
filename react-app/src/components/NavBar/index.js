@@ -11,7 +11,7 @@ export default function NavBar() {
       <NavLink to='/' exact={true} activeClassName='active'>
         <div className='title-logo' alt='logo'>
           {/* 𝑬𝒗𝒆𝒓𝒘𝒓𝒊𝒕𝒆 */}
-          <i className="fa-solid fa-elephant"></i>
+          <i className="fa-solid fa-republican"></i>
         </div>
       </NavLink>
       <div className='nav-bar-right-section'>
@@ -22,12 +22,12 @@ export default function NavBar() {
         </NavLink>
 
         <NavLink id='nav-btns' to='/notebooks' exact={true} activeClassName='active'>
-        <i className="fa-solid fa-notebook"></i>
+        <i className="fa-solid fa-book"></i>
           Notebooks
         </NavLink>
 
         <NavLink id='nav-btns' to='/notes' exact={true} activeClassName='active'>
-        <i className="fa-solid fa-note"></i>
+        <i className="fa-solid fa-note-sticky"></i>
         Notes
         </NavLink>
 

@@ -88,7 +88,7 @@ export default function NotebooksPage() {
                     <div className='notebooks'>
                         {filteredNotebooks?.map((notebook, index) =>
                             <div key={index} className='one-notebook'>
-                                <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'><i id='notebooks-icons' class="fa-solid fa-notebook"></i> {notebook.name}</div>
+                                <div onClick={() => setShowOpenNotebookModal(index)} id='notebook-name'><i id='notebooks-icons' class="fa-solid fa-book"></i> {notebook.name}</div>
                                 {showOpenNotebookModal === index && (
                                     <Modal onClose={closeOpenNotebookModal}>
                                         <SingleNotebookPage
@@ -110,7 +110,7 @@ export default function NotebooksPage() {
 
                                             <i
                                                 id='triple-dot'
-                                                className="fa-light fa-ellipsis"
+                                                className="fa-solid fa-ellipsis"
                                                 onClick={() => setShowDropdown(index)}
                                             />
                                             {showDropdown === index && <EllipsisDropdown setNotebookToEdit={setNotebookToEdit} setShowEditNotebookModal={setShowEditNotebookModal} notebook={notebook} notebookId={notebook.id} />}
